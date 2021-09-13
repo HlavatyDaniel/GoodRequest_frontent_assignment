@@ -1,35 +1,51 @@
-.App {
-  font: {
-    size: 1em;
-    family: 'Nunito Sans', helvetica, arial, sans-serif;
-    weight: 600;
-  }
+.container {
+    margin: auto;
+    width: 50vw;
+    height: 100vh;
 
-  text-align: center;
-  margin: 0 auto 2em;
-  max-width: 48em;
+    display: grid;
 
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr 1fr 1fr 150px;
 }
 
-header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 1em;
+.header {
+    grid-column-start: 1;
+    grid-column-end: 3;
 }
 
-.content {
-  font-size: 1.15em;
-  line-height: 1.5em;
-  padding: 1.5em 1.75em 0;
+.rectangleContainer {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 2;
 }
 
-article {
-  text-align: left;
+.imageContainer {
+    grid-column: 3;
+    grid-row-start: 1;
+    grid-row-end: 6;
 }
 
-@media screen and (max-width: 520px) {
-  .App {
-    font-size: 0.85em;
-  }
+.inputUtulok {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 3;
+}
+
+.inputSuma {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 4;
+}
+
+.footer {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row: 6
+}
+
+.buttonWrapper {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 5;
 }
