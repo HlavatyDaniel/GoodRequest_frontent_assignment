@@ -14,15 +14,20 @@
     grid-column-end: 3;
 }
 
-.inputsContaienr {
+.inputsContainer {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row: 2;
 }
 
-.buttonsContainer {
-    grid-column-start: 1;
-    grid-column-end: 3;
+.buttonsBack {
+    grid-column: 1;
+    grid-row: 3;
+    align-items: left;
+}
+
+.buttonNext {
+    grid-column: 2;
     grid-row: 3;
 }
 

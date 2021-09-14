@@ -9,3 +9,8 @@ export enum ParagraphTypes {
     LabelRight,
     LabelMain
 }
+
+export enum ButtonTypes {
+    Left,
+    Right
+}

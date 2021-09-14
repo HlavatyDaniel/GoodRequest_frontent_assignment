@@ -9,7 +9,7 @@
     font-size: 16px;
     line-height: 21px;
     color: #9F9F9F;
-    top: 90px;
+    top: 50px;
     left: 20px;
     position: absolute;
 }
@@ -22,8 +22,17 @@
     line-height: 21px;
     color: #2F2F2F;
     position: absolute;
-    top: 70px;
+    top: 30px;
     left: 20px;
+}
+
+.topLabel {
+    font-family: 'Public Sans', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 19px;
+    color: #2F2F2F;
 }
 
 .inputStyle {
@@ -31,9 +40,15 @@
     width: 93%;
     height: 74px;
 
+    background: #FFFFFF;
+    border: 1px solid #CD8B65;
+    box-sizing: border-box;
+    border-radius: 8px;
+
     font-family: 'Public Sans', sans-serif;
     font-style: normal;
     font-weight: 800;
     font-size: 16px;
     line-height: 21px;
+    margin-top: 1em;
 }

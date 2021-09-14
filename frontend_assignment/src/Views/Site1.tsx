@@ -10,7 +10,7 @@ import Button from "../Components/Inputs/Button"
 import Footer from "../Components/Parts/Footer"
 import Input from "../Components/Inputs/Input"
 import Paragraph from "../Components/Parts/Paragraph"
-import {ParagraphTypes} from "../Types/types"
+import {ParagraphTypes, ButtonTypes} from "../Types/types"
 
 function Site1() {
     return (
@@ -53,7 +53,10 @@ function Site1() {
                 </div>
 
                 <div className={styles.buttonWrapper}>
-                    <Button/>
+                    <Button
+                    text = "Pokračovať"
+                    buttonType = {ButtonTypes.Right}
+                    />
                 </div>
 
                 <div className={styles.imageContainer}>

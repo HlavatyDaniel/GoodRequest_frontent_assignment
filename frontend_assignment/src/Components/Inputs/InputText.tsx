@@ -5,16 +5,30 @@ import React from 'react'
 
 import styles from "./InputText.module.scss"
 
-const InputText: React.FC = () => {
+interface Props  {
+    label1 : string,
+    label2 : string,
+    label3? : string
+}
+
+const InputText: React.FC<Props> = (props) => {
+
     return (
-        <div className={styles.inputContainer}>
-            <label className={styles.typeLabel}>Meno</label>
-            <label className={styles.optionsLabel}>Zadajte Vaše meno</label>
-            <input
-                className={styles.inputStyle}
-                type="text"
-            >
-            </input>
+        <div>
+            {props.label3 !== null &&
+            <label 
+                className={styles.topLabel}
+            >{props.label3}</label>
+            }
+            <div className={styles.inputContainer}>
+                <label className={styles.typeLabel}>{props.label1}</label>
+                <label className={styles.optionsLabel}>{props.label2}</label>
+                <input
+                    className={styles.inputStyle}
+                    type="text"
+                >
+                </input>
+            </div>
         </div>
     )
 }
