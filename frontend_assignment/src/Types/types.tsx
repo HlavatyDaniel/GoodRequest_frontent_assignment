@@ -1,3 +1,8 @@
+export enum ButtonTypes {
+    Left,
+    Right
+}
+
 export enum ParagraphTypes {
     FooterNote,
     FooterTitle,
@@ -8,10 +13,5 @@ export enum ParagraphTypes {
     LabelLeft,
     LabelRight,
     LabelMain
-    
-}
 
-export enum ButtonTypes {
-    Left,
-    Right
 }
