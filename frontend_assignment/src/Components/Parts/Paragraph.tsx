@@ -30,7 +30,13 @@ const Paragraph: React.FC<Props> = (props) => {
         className = styles.labelRight
     else if (props.paragraphType === ParagraphTypes.LabelMain)
         className = styles.labelMain
-
+    else if (props.paragraphType === ParagraphTypes.LabelData)
+        className = styles.labelData
+    else if (props.paragraphType === ParagraphTypes.LabelForm)
+        className = styles.labelForm
+    else if (props.paragraphType === ParagraphTypes.CheckBox)
+        className = styles.checkBox
+        
     return (
         <p className={className}>{props.text}</p>
     )

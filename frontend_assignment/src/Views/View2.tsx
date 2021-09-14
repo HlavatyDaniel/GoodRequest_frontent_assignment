@@ -1,4 +1,4 @@
-import styles from "./Site2.module.scss"
+import styles from "./View2.module.scss"
 
 import GoodDogo from "../Assets/GoodDogo.png"
 
@@ -8,7 +8,7 @@ import InputText from "../Components/Inputs/InputText"
 import Button from "../Components/Inputs/Button"
 import { ButtonTypes } from "../Types/types"
 
-function Site2() {
+function View2() {
     return (
         <div>
             <div className={styles.container}>
@@ -65,4 +65,4 @@ function Site2() {
     )
 }
 
-export default Site2
+export default View2

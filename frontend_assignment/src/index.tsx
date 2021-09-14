@@ -1,9 +1,10 @@
 import ReactDOM from "react-dom"
 
-import Site1 from "./Views/Site1"
-import Site2 from "./Views/Site2"
+import View1 from "./Views/View1"
+import View2 from "./Views/View2"
+import View3 from "./Views/View3"
 
 ReactDOM.render(
-        <Site2 />,
+        <View3 />,
     document.getElementById("root")
 )

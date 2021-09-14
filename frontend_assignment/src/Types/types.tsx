@@ -12,6 +12,8 @@ export enum ParagraphTypes {
     RectangleLeft,
     LabelLeft,
     LabelRight,
-    LabelMain
-
+    LabelMain,
+    LabelForm,
+    LabelData,
+    CheckBox
 }

@@ -1,0 +1,81 @@
+.container {
+    margin: auto;
+    width: 50vw;
+    height: 90vh;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1.5fr 0.5fr 1fr;
+}
+
+.header {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.imageContainer {
+    grid-column: 3;
+    grid-row-start: 1;
+    grid-row-end: 5; //TO DO if not overkill
+}
+
+.paragraphContainer {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 2;
+}
+
+.checkboxContainer {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 3;
+}
+
+.buttonBack {
+    grid-column: 1;
+    grid-row: 4;
+}
+
+.buttonNext {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+.line {
+    width: 80%;  
+    height: 1px;  
+    background-color: rgba(47, 47, 47, 0.16);;  
+    margin-bottom: 7px;  
+    margin-right: auto;  
+    margin-left: auto;   
+}
+
+.paragraphGrid {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.paragraphForm {
+    grid-row: 1;
+}
+
+.paragraphUtulok {
+    grid-row: 2;
+}
+
+.paragraphSuma {
+    grid-row: 3;
+}
+
+.paragraphName {
+    grid-row: 4;
+}
+
+.paragraphEmail {
+    grid-row: 5;
+}
+
+.paragrapgPhone {
+    grid-row: 6;
+}
