@@ -5,11 +5,14 @@ import styles from "./App.module.scss"
 import GoodDogo from "./Assets/GoodDogo.png"
 
 import Header from "./Components/Header"
-import Rectangle from "./Components/Rectangle"
-import Select from "./Components/Select"
+import RectangleLeft from "./Components/RectangleLeft"
+import RectangleRight from "./Components/RectangleRight"
+import MySelect from "./Components/MySelect"
 import Button from "./Components/Button"
 import Footer from "./Components/Footer"
 import Input from "./Components/Input"
+import Paragraph from "./Components/Paragraph"
+import {ParagraphTypes} from "./Types/types"
 
 function App() {
     return (
@@ -21,22 +24,34 @@ function App() {
                 </div>
 
                 <div className={styles.rectangleContainer}>
-                    <Rectangle rectangleType={1} />
-                    <Rectangle rectangleType={2} />
+                    <RectangleLeft 
+                        text="Chcem finančne prispieť konkrétnemu útulku"
+                    />
+                    <RectangleRight 
+                        text="Chcem finančne prispieť celej nadácii"
+                    />
                 </div>
 
                 <div className={styles.inputUtulok}>
-                    <Select/>
+                    <MySelect/>
                 </div>
 
-                <div className={styles.inputSuma}>
-                    <Input description='5€'/>
-                    <Input description='10€'/>
-                    <Input description='20€'/>
-                    <Input description='30€'/>
-                    <Input description='50€'/>
-                    <Input description='100€'/>
-                    <Input description='...€'/> {/* TO DO*/}
+                <div className={styles.inputSumaContainer}>
+
+                    <Paragraph
+                        text = "Suma, ktorou chcem prispieť"
+                        paragraphType = {ParagraphTypes.LabelMain}
+                    ></Paragraph>
+
+                    <div>
+                        <Input description='5€'/>
+                        <Input description='10€'/>
+                        <Input description='20€'/>
+                        <Input description='30€'/>
+                        <Input description='50€'/>
+                        <Input description='100€'/>
+                        <Input description='...€'/>
+                    </div>
                 </div>
 
                 <div className={styles.buttonWrapper}>
@@ -46,10 +61,11 @@ function App() {
                 <div className={styles.imageContainer}>
                     <img src={GoodDogo} alt="GoodDogo"/>
                 </div>
+            </div>
 
-                <div className={styles.footer}>
-                    <Footer/>
-                </div>
+            <div>
+                <hr className={styles.line}/>
+                <Footer/>
             </div>
         </div>
     )

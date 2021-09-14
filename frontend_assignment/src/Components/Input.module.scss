@@ -1,11 +1,19 @@
 .inputAmount {
     display: inline-block;
 
-    width: 68px;
+    max-width: 90px;
     height: 53px;
 
     background: #FFFFFF;
     border: 1px solid #DFDFDF;
     box-sizing: border-box;
     border-radius: 8px;
+
+    font-family: 'Public Sans', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 21px;
+    margin-left: 0.2em;
+    margin-right: 0.5em;
 }

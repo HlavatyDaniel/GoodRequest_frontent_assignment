@@ -1,8 +1,51 @@
 .selectUtulok {
     margin-right: 5em;
-    background: #FFFFFF;
-    border: 1px solid #DFDFDF;
-    border-radius: 8px;
+    // background: #FFFFFF;
+    // border: 1px solid #DFDFDF;
+    // border-radius: 8px;
     width: 93%;
-    height: 40%;
+    height: 74px;
+
+    font-family: 'Public Sans', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 21px;
+}
+
+option {
+    margin-left: 1em;
+    font-family: 'Public Sans', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 21px;
+}
+
+.optionsLabel {
+    font-family: 'Public Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 21px;
+    color: #9F9F9F;
+    top: 90px;
+    left: 20px;
+    position: absolute;
+}
+
+.typeLabel {
+    font-family: 'Public Sans', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 21px;
+    color: #2F2F2F;
+    position: absolute;
+    top: 70px;
+    left: 20px;
+}
+
+.selectContainer {
+    position: relative;
 }

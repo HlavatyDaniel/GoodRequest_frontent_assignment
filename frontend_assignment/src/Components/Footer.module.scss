@@ -1,0 +1,29 @@
+.container {
+    display: grid;
+    margin: auto;
+    width: 70vw;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.logo {
+    grid-column: 1;
+}
+
+.goodBoy{
+    display: inline-block;
+    width: 53.03px;
+    height: 54.03px;
+}
+
+.infoContainer {
+    grid-column: 2;
+}
+
+.infoContainer2 {
+    grid-column: 3;
+}
+
+.infoContainer3 {
+    grid-column: 4;
+}
