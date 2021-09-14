@@ -1,11 +1,11 @@
 import React from 'react'
-import Paragraph from './Paragraph';
+import Paragraph from '../Parts/Paragraph';
 
 import styles from "./RectangleRight.module.scss"
 
 import PawLogo from "../Assets/PawLogo.png"
 
-import { ParagraphTypes } from '../Types/types'
+import { ParagraphTypes } from '../../Types/types'
 
 interface Props {
     text: string

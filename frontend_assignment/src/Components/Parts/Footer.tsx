@@ -2,10 +2,10 @@ import React from 'react'
 
 import Paragraph  from './Paragraph'
 
-import GoodBoy from "../Assets/GoodBoyLogo.png"
+import GoodBoy from "../../Assets/GoodBoyLogo.png"
 
 import styles from "./Footer.module.scss"
-import { ParagraphTypes } from '../Types/types'
+import { ParagraphTypes } from "../../Types/types"
 
 const Footer: React.FC = () => {
 

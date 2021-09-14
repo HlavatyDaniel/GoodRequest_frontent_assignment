@@ -1,5 +1,5 @@
 import React from 'react'
-import { ParagraphTypes } from '../Types/types'
+import { ParagraphTypes } from '../../Types/types'
 
 import styles from "./Paragraph.module.scss"
 

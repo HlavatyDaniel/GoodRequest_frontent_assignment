@@ -1,20 +1,18 @@
-import styles from "./App.module.scss"
+import styles from "./Site1.module.scss"
 
-//import {Select} from '@material-ui/core';
+import GoodDogo from "../Assets/GoodDogo.png"
 
-import GoodDogo from "./Assets/GoodDogo.png"
+import Header from "../Components/Parts/Header"
+import RectangleLeft from "../Components/Inputs/RectangleLeft"
+import RectangleRight from "../Components/Inputs/RectangleRight"
+import MySelect from "../Components/Inputs/MySelect"
+import Button from "../Components/Inputs/Button"
+import Footer from "../Components/Parts/Footer"
+import Input from "../Components/Inputs/Input"
+import Paragraph from "../Components/Parts/Paragraph"
+import {ParagraphTypes} from "../Types/types"
 
-import Header from "./Components/Header"
-import RectangleLeft from "./Components/RectangleLeft"
-import RectangleRight from "./Components/RectangleRight"
-import MySelect from "./Components/MySelect"
-import Button from "./Components/Button"
-import Footer from "./Components/Footer"
-import Input from "./Components/Input"
-import Paragraph from "./Components/Paragraph"
-import {ParagraphTypes} from "./Types/types"
-
-function App() {
+function Site1() {
     return (
         <div>
             <div className={styles.container}>
@@ -71,4 +69,4 @@ function App() {
     )
 }
 
-export default App
+export default Site1

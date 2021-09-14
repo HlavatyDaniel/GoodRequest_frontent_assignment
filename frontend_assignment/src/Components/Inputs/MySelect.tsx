@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Paragraph from './Paragraph'
-import { ParagraphTypes } from '../Types/types'
+import Paragraph from '../Parts/Paragraph'
+import { ParagraphTypes } from '../../Types/types'
 
 import styles from "./Select.module.scss"
 

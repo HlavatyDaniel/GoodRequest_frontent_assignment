@@ -1,0 +1,39 @@
+.inputContainer {
+    position: relative;
+}
+
+.optionsLabel {
+    font-family: 'Public Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 21px;
+    color: #9F9F9F;
+    top: 90px;
+    left: 20px;
+    position: absolute;
+}
+
+.typeLabel {
+    font-family: 'Public Sans', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 21px;
+    color: #2F2F2F;
+    position: absolute;
+    top: 70px;
+    left: 20px;
+}
+
+.inputStyle {
+    margin-right: 5em;
+    width: 93%;
+    height: 74px;
+
+    font-family: 'Public Sans', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 21px;
+}
