@@ -8,6 +8,7 @@ export enum ParagraphTypes {
     LabelLeft,
     LabelRight,
     LabelMain
+    
 }
 
 export enum ButtonTypes {
