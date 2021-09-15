@@ -7,9 +7,11 @@ import Footer from "../Components/Parts/Footer"
 import Button from "../Components/Inputs/Button"
 import Paragraph from "../Components/Parts/Paragraph"
 
+import { NavLink } from "react-router-dom"
+
 import { ButtonTypes, ParagraphTypes } from "../Types/types"
 
-function View3() {
+const View3: React.FC = () => {
     return (
         <div>
             <div className={styles.container}>
@@ -103,10 +105,14 @@ function View3() {
                 </div>
 
                 <div className={styles.buttonBack}>
-                    <Button
-                    text="Späť"
-                    buttonType={ButtonTypes.Left}
-                    ></Button>
+                    <NavLink 
+                        to = "/PersonalInfo"
+                    >
+                        <Button
+                            text="Späť"
+                            buttonType={ButtonTypes.Left}
+                        ></Button>
+                    </NavLink>
                 </div>
 
                 <div className={styles.buttonNext}>

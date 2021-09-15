@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 import styles from "./Input.module.scss"
 
 import CSS from 'csstype'
+import { Styles } from 'react-select'
 interface Props {
     description: string
 }
@@ -10,6 +11,20 @@ interface Props {
 const Input: React.FC<Props> = (props) => {
 
     const {description} = props
+
+    // const [inputActive, setInputActive] = useState('')
+
+    // useEffect(() => {
+    //     const initInputState = () => {
+    //         setInputActive(styles.inputAmount)
+    //     }
+
+    //     initInputState()
+    // });
+
+    // const setActive = () => {
+    //     setInputActive(styles.inputAmountActive)
+    // }
 
     const inputSizeStyle: CSS.Properties = {
         width: (description.length*6 - description.length + 50).toString() + "px"
@@ -20,7 +35,8 @@ const Input: React.FC<Props> = (props) => {
             style={inputSizeStyle}
             type="submit" 
             value={description} 
-            className={styles.inputAmount}
+            className={styles.inputAmount }
+            // onClick={setActive}
             >
         </input>
     )

@@ -1,5 +1,7 @@
 import styles from "./View1.module.scss"
 
+import React, {useState, useEffect} from "react"
+
 import GoodDogo from "../Assets/GoodDogo.png"
 
 import Header from "../Components/Parts/Header"
@@ -10,9 +12,41 @@ import Button from "../Components/Inputs/Button"
 import Footer from "../Components/Parts/Footer"
 import Input from "../Components/Inputs/Input"
 import Paragraph from "../Components/Parts/Paragraph"
-import {ParagraphTypes, ButtonTypes} from "../Types/types"
+import {ParagraphTypes, ButtonTypes, UtulokOption} from "../Types/types"
 
-function View1() {
+import {NavLink} from "react-router-dom"
+import axios from "axios"
+
+import { useSelector } from "react-redux"
+
+const View1: React.FC = () => {
+
+    const [utulokOptions, setUtulokOptions] = useState<UtulokOption[]>([])
+
+    const pickedUtulok = useSelector((state) => state)
+
+    useEffect(() => {
+        const fetchUtulky = () => {
+            axios.get('https://frontend-assignment-api.goodrequest.com/api/v1/shelters')
+                .then(response => {
+                    let newUtulokOptions : UtulokOption[] = [];
+                    Object.keys(response.data.shelters).forEach(function(key) {
+                        const newUtulokOption : UtulokOption = {
+                            id: response.data.shelters[key].id,
+                            name: response.data.shelters[key].name
+                        };
+                        newUtulokOptions.push(newUtulokOption);
+                    })
+
+                    setUtulokOptions(newUtulokOptions)
+                }).catch(ignore => {
+                    console.log("not sure what should i do here, what is standard behavior")
+                })
+        };
+
+        fetchUtulky()
+    },[]);
+
     return (
         <div>
             <div className={styles.container}>
@@ -31,7 +65,9 @@ function View1() {
                 </div>
 
                 <div className={styles.inputUtulok}>
-                    <MySelect/>
+                    <MySelect
+                        utulokOptions = {utulokOptions}
+                    />
                 </div>
 
                 <div className={styles.inputSumaContainer}>
@@ -53,10 +89,14 @@ function View1() {
                 </div>
 
                 <div className={styles.buttonWrapper}>
-                    <Button
-                    text = "Pokračovať"
-                    buttonType = {ButtonTypes.Right}
-                    />
+                    <NavLink 
+                        to = "/PersonalInfo"
+                    >
+                        <Button
+                            text = "Pokračovať"
+                            buttonType = {ButtonTypes.Right}
+                        />
+                    </NavLink>
                 </div>
 
                 <div className={styles.imageContainer}>

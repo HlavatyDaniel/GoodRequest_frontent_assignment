@@ -17,3 +17,8 @@ export enum ParagraphTypes {
     LabelData,
     CheckBox
 }
+
+export interface UtulokOption {
+    id: number,
+    name : string
+}

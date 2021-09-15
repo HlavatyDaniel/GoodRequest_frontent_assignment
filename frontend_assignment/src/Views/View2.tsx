@@ -8,7 +8,9 @@ import InputText from "../Components/Inputs/InputText"
 import Button from "../Components/Inputs/Button"
 import { ButtonTypes } from "../Types/types"
 
-function View2() {
+import {NavLink} from "react-router-dom"
+
+const View2: React.FC = () => {
     return (
         <div>
             <div className={styles.container}>
@@ -38,17 +40,25 @@ function View2() {
                 </div>
 
                 <div className={styles.buttonBack}>
-                    <Button
-                    text = "Späť"
-                    buttonType = {ButtonTypes.Left}
-                    />
+                    <NavLink 
+                        to = "/"
+                    >
+                        <Button
+                            text = "Späť"
+                            buttonType = {ButtonTypes.Left}
+                        />
+                    </NavLink>
                 </div>
 
                 <div className={styles.buttonNext}>
-                    <Button
-                    text = "Pokračovať"
-                    buttonType = {ButtonTypes.Right}
-                    />
+                    <NavLink 
+                        to = "/Confimation"
+                    >
+                        <Button
+                            text = "Pokračovať"
+                            buttonType = {ButtonTypes.Right}
+                        />
+                    </NavLink>
                 </div>
 
                 <div className={styles.imageContainer}>
