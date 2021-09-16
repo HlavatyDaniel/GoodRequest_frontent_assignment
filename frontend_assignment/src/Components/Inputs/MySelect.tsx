@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 
 import Paragraph from '../Parts/Paragraph'
 import { ParagraphTypes, UtulokOption } from '../../Types/types'
@@ -26,8 +26,30 @@ const MySelect: React.FC<Props> = (props) => {
     const actionPickCreator = bindActionCreators(setUtulok, dispatchPick)
     const pickedUtulok : UtulokOption = useSelector((state : RootState) => state.utulokData)
 
-
     const [labelsHidden, setLabelsHidden] = useState<boolean>(false)
+
+    useEffect(() => {
+        const setOption = () => {
+            if (pickedUtulok.id !== 0 && pickedUtulok.name !== "")
+            {
+                if (selectUtulokRef.current)
+                {
+                    var children = selectUtulokRef.current.children;
+                    for (var i = 0; i < children.length; i++)
+                    {
+                        if (children[i].innerHTML.toString() === pickedUtulok.name)
+                        {
+                            selectUtulokRef.current.value = pickedUtulok.id + "|" + pickedUtulok.name
+                            setLabelsHidden(true)
+                            break;
+                        }
+                    }
+                }
+            }
+        };
+
+        setOption()
+    })
 
     const handleChange = () => {
         setLabelsHidden(true)
@@ -37,8 +59,6 @@ const MySelect: React.FC<Props> = (props) => {
             var splits = selectUtulokRef.current.value.split("|")
             var id : number
             var name : string
-
-            console.log(splits);
 
             if (splits[0])
                 id = +splits[0];
@@ -53,10 +73,7 @@ const MySelect: React.FC<Props> = (props) => {
                 name :  name
             }
 
-            console.log(utulok)
-
             actionPickCreator(utulok);
-            console.log(pickedUtulok.id + " " + pickedUtulok.name)
         }
     }
 
