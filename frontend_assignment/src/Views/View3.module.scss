@@ -17,7 +17,7 @@
 .imageContainer {
     grid-column: 3;
     grid-row-start: 1;
-    grid-row-end: 5; //TO DO if not overkill
+    grid-row-end: 5;
 }
 
 .paragraphContainer {
@@ -40,15 +40,6 @@
 .buttonNext {
     grid-column: 2;
     grid-row: 4;
-}
-
-.line {
-    width: 80%;  
-    height: 1px;  
-    background-color: rgba(47, 47, 47, 0.16);;  
-    margin-bottom: 7px;  
-    margin-right: auto;  
-    margin-left: auto;   
 }
 
 .paragraphGrid {

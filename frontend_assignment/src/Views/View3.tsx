@@ -133,7 +133,7 @@ const View3: React.FC = () => {
             </div>
 
             <div>
-                <hr className={styles.line}/>
+                <hr/>
                 <Footer>
                 </Footer>
             </div>

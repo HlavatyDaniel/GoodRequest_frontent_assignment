@@ -1,13 +1,14 @@
-.inputContainer {
-    position: relative;
+%mainStyle {
+    font-family: 'Public Sans', sans-serif;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 800;
 }
 
 .optionsLabel {
-    font-family: 'Public Sans', sans-serif;
-    font-style: normal;
+    @extend %mainStyle;
     font-weight: normal;
-    font-size: 16px;
-    line-height: 21px;
     color: #9F9F9F;
     top: 50px;
     left: 20px;
@@ -15,11 +16,7 @@
 }
 
 .typeLabel {
-    font-family: 'Public Sans', sans-serif;
-    font-style: normal;
-    font-weight: 800;
-    font-size: 16px;
-    line-height: 21px;
+    @extend %mainStyle;
     color: #2F2F2F;
     position: absolute;
     top: 30px;
@@ -27,15 +24,14 @@
 }
 
 .topLabel {
-    font-family: 'Public Sans', sans-serif;
-    font-style: normal;
-    font-weight: 800;
+    @extend %mainStyle;
     font-size: 14px;
     line-height: 19px;
     color: #2F2F2F;
 }
 
 .inputStyle {
+    @extend %mainStyle;
     margin-right: 5em;
     width: 93%;
     height: 74px;
@@ -45,10 +41,9 @@
     box-sizing: border-box;
     border-radius: 8px;
 
-    font-family: 'Public Sans', sans-serif;
-    font-style: normal;
-    font-weight: 800;
-    font-size: 16px;
-    line-height: 21px;
     margin-top: 1em;
+}
+
+.inputContainer {
+    position: relative;
 }

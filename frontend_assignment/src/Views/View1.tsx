@@ -7,7 +7,7 @@ import GoodDogo from "../Assets/GoodDogo.png"
 import Header from "../Components/Parts/Header"
 import RectangleLeft from "../Components/Inputs/RectangleLeft"
 import RectangleRight from "../Components/Inputs/RectangleRight"
-import MySelect from "../Components/Inputs/MySelect"
+import Select from "../Components/Inputs/Select"
 import Button from "../Components/Inputs/Button"
 import Footer from "../Components/Parts/Footer"
 import Input from "../Components/Inputs/Input"
@@ -67,7 +67,7 @@ const View1: React.FC = () => {
                 </div>
 
                 <div className={styles.inputUtulok}>
-                    <MySelect
+                    <Select
                         utulokOptions = {utulokOptions}
                     />
                 </div>
@@ -145,7 +145,7 @@ const View1: React.FC = () => {
             </div>
 
             <div>
-                <hr className={styles.line}/>
+                <hr/>
                 <Footer/>
             </div>
         </div>

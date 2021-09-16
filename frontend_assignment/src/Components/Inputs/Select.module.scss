@@ -1,33 +1,26 @@
-.selectUtulok {
-    margin-right: 5em;
-    // background: #FFFFFF;
-    // border: 1px solid #DFDFDF;
-    // border-radius: 8px;
-    width: 93%;
-    height: 74px;
-
+%mainStyle {
     font-family: 'Public Sans', sans-serif;
     font-style: normal;
     font-weight: 800;
     font-size: 16px;
     line-height: 21px;
+}
+
+.selectUtulok {
+    @extend %mainStyle;
+    margin-right: 5em;
+    width: 93%;
+    height: 74px;
 }
 
 option {
+    @extend %mainStyle;
     margin-left: 1em;
-    font-family: 'Public Sans', sans-serif;
-    font-style: normal;
-    font-weight: 800;
-    font-size: 16px;
-    line-height: 21px;
 }
 
 .optionsLabel {
-    font-family: 'Public Sans', sans-serif;
-    font-style: normal;
+    @extend %mainStyle;
     font-weight: normal;
-    font-size: 16px;
-    line-height: 21px;
     color: #9F9F9F;
     top: 90px;
     left: 20px;
@@ -35,11 +28,7 @@ option {
 }
 
 .typeLabel {
-    font-family: 'Public Sans', sans-serif;
-    font-style: normal;
-    font-weight: 800;
-    font-size: 16px;
-    line-height: 21px;
+    @extend %mainStyle;
     color: #2F2F2F;
     position: absolute;
     top: 70px;

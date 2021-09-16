@@ -1,7 +1,29 @@
-.footerAbout{
+%footerParagraph {
     font-family: 'Hind';
     font-weight: 400;
     font-size: 16px;
+    line-height: 130%;
+}
+
+%rectangleParagraph {
+    font-family: 'Public Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21px;
+}
+
+%labelParagraph {
+    font-family: 'Public Sans', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    color: #2F2F2F;
+    line-height: 19px;
+}
+
+.footerAbout{
+    @extend %footerParagraph;
     line-height: 200%;
     color: #585757;
     max-width: 70px;
@@ -9,45 +31,31 @@
 }
 
 .footerNote {
-    font-family: 'Hind';
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 130%;
+    @extend %footerParagraph;
     color: #585757;
     max-width: 150px;
     opacity: 0.6;
 }
 
 .footerTitle{
+    @extend %footerParagraph;
     font-weight: 800;
-    font-size: 16px;
-    line-height: 130%;
-    font-family: 'Hind';
 }
 
 .footerLogo{
+    @extend %footerParagraph;
     font-weight: 800;
     font-size: 36px;
     display: inline-block;
-    line-height: 130%;
-    font-family: 'Hind';
 }
 
 .rectangleLeft {
-    font-family: 'Public Sans', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 21px;
+    @extend %rectangleParagraph;
     color: #585757;
 }
 
 .rectangleRight {
-    font-family: 'Public Sans', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 21px;
+    @extend %rectangleParagraph;
     color: #FFFFFF;
 }
 
@@ -55,65 +63,42 @@
     overflow: hidden;
 }
 
-.labelRight {
-    font-family: 'Public Sans', sans-serif;
-    font-style: normal;
-    font-weight: 800;
-    font-size: 14px;
-    line-height: 19px;
+.checkBox {
+    @extend %rectangleParagraph;
+    font-weight: normal;
     color: #2F2F2F;
+    opacity: 0.8;
+    display: inline-block;
+}
+
+.labelRight {
+    @extend %labelParagraph;
+    font-size: 14px;
     float: right;
     margin-right: 3em;
     opacity: 0.8;
 }
 
 .labelLeft {
-    font-family: 'Public Sans', sans-serif;
-    font-style: normal;
-    font-weight: 800;
-    font-size: 16px;
-    line-height: 19px;
-    color: #2F2F2F;
+    @extend %labelParagraph;
     float: left;
 }
 
 .labelMain {
-    font-family: 'Public Sans', sans-serif;
-    font-style: normal;
-    font-weight: 800;
-    font-size: 16px;
-    line-height: 19px;
-    color: #2F2F2F;
+    @extend %labelParagraph;
     width: 100%;
 }
 
 .labelForm {
-    font-family: 'Public Sans', sans-serif;
-    font-style: normal;
-    font-weight: 800;
+    @extend %labelParagraph;
     font-size: 14px;
     line-height: 10px;
-    color: #2F2F2F;
     width: 100%;
 }
 
 .labelData {
-    font-family: 'Public Sans', sans-serif;
-    font-style: normal;
+    @extend %labelParagraph;
     font-weight: normal;
-    font-size: 16px;
     line-height: 10px;
-    color: #2F2F2F;
     width: 100%;
-}
-
-.checkBox {
-    font-family: 'Public Sans', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 21px;
-    color: #2F2F2F;
-    opacity: 0.8;
-    display: inline-block;
 }
