@@ -1,9 +1,11 @@
 import { combineReducers  } from "redux";
 
 import selectReducer from "./selectReducer"
+import inputReducer from "./inputReducer"
 
 const reducers = combineReducers({
-    selectId: selectReducer
+    selectId: selectReducer,
+    inputItem : inputReducer
 })
 
 export default reducers

@@ -31,7 +31,6 @@ const MySelect: React.FC<Props> = (props) => {
         
         if (selectUtulokRef.current?.value)
         {
-            console.log("SelectedId" + selectUtulokRef.current.value);
             var id: number = +selectUtulokRef.current.value
             actionPickCreator(id);
         }

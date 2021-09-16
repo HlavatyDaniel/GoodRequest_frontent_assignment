@@ -12,18 +12,19 @@ import Button from "../Components/Inputs/Button"
 import Footer from "../Components/Parts/Footer"
 import Input from "../Components/Inputs/Input"
 import Paragraph from "../Components/Parts/Paragraph"
-import {ParagraphTypes, ButtonTypes, UtulokOption} from "../Types/types"
+import {ParagraphTypes, ButtonTypes, UtulokOption, InputOption} from "../Types/types"
 
 import {NavLink} from "react-router-dom"
 import axios from "axios"
 
 import { useSelector } from "react-redux"
+import { RootState } from "../state/reducers"
 
 const View1: React.FC = () => {
 
     const [utulokOptions, setUtulokOptions] = useState<UtulokOption[]>([])
 
-    const pickedUtulok = useSelector((state) => state)
+    const pickedInput : InputOption = useSelector((state : RootState) => state.inputItem)
 
     useEffect(() => {
         const fetchUtulky = () => {
@@ -78,13 +79,51 @@ const View1: React.FC = () => {
                     ></Paragraph>
 
                     <div>
-                        <Input description='5€'/>
-                        <Input description='10€'/>
-                        <Input description='20€'/>
-                        <Input description='30€'/>
-                        <Input description='50€'/>
-                        <Input description='100€'/>
-                        <Input description='...€'/>
+                            {pickedInput.value === 5 
+                            ?   <Input inputId={1} value={5} className={styles.inputAmountActive} 
+                                />
+                            :   <Input inputId={1} value={5} className={styles.inputAmount} 
+                                />
+                            }
+
+                            {pickedInput.value === 10 
+                            ?   <Input inputId={2} value={10} className={styles.inputAmountActive} 
+                                />
+                            :   <Input inputId={2} value={10} className={styles.inputAmount} 
+                                />
+                            }
+
+                            {pickedInput.value === 20 
+                            ?   <Input inputId={3} value={20} className={styles.inputAmountActive} 
+                                />
+                            :   <Input inputId={3} value={20} className={styles.inputAmount} 
+                                />
+                            }
+
+                            {pickedInput.value === 30 
+                            ?   <Input inputId={4} value={30} className={styles.inputAmountActive} 
+                                />
+                            :   <Input inputId={4} value={30} className={styles.inputAmount} 
+                                />
+                            }
+
+                            {pickedInput.value === 50 
+                            ?   <Input inputId={5} value={50} className={styles.inputAmountActive} 
+                                />
+                            :   <Input inputId={5} value={50} className={styles.inputAmount} 
+                                />
+                            }
+
+                            {pickedInput.value === 100 
+                            ?   <Input inputId={6} value={100} className={styles.inputAmountActive} 
+                                />
+                            :   <Input inputId={6} value={100} className={styles.inputAmount} 
+                                />
+                            }
+                            
+                        <Input inputId={7} value={0} 
+                            className={styles.inputAmount}
+                        />
                     </div>
                 </div>
 

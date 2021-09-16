@@ -22,3 +22,8 @@ export interface UtulokOption {
     id: number,
     name : string
 }
+
+export interface InputOption {
+    id : number,
+    value : number
+}

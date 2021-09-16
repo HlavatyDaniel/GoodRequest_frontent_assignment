@@ -1,8 +1,8 @@
-import { Action } from "../actions";
+import { SelectAction } from "../actions";
 
 const initialState : number = 0 
 
-const selectReducer = (state : number = initialState, action : Action) => {
+const selectReducer = (state : number = initialState, action : SelectAction) => {
     switch(action.type){
         case "set":
             state = action.payload;
@@ -10,7 +10,6 @@ const selectReducer = (state : number = initialState, action : Action) => {
         default:
             return state
     }
-
 }
 
 export default selectReducer
