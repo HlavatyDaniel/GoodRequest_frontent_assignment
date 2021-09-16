@@ -1,17 +1,56 @@
-import React from 'react'
+import React, {useState, useRef} from 'react'
 
 // import Paragraph from '../Parts/Paragraph'
-// import { ParagraphTypes } from '../../Types/types'
+import { Data } from '../../Types/types'
 
 import styles from "./InputText.module.scss"
+
+import { useDispatch } from "react-redux"
+import { bindActionCreators } from "redux"
+import { setEmail, setPhoneNumber, setName, setSurname } from "../../state/action-creators/actionCreators"
 
 interface Props  {
     label1 : string,
     label2 : string,
-    label3? : string
+    label3? : string,
+    type : Data
 }
 
 const InputText: React.FC<Props> = (props) => {
+
+    const dispatchSetter = useDispatch();
+    const actionSetEmail = bindActionCreators(setEmail, dispatchSetter)
+    const actionSetPhoneNumber = bindActionCreators(setPhoneNumber, dispatchSetter)
+    const actionSetName = bindActionCreators(setName, dispatchSetter)
+    const actionSetSurname = bindActionCreators(setSurname, dispatchSetter)
+
+    const inputRef = useRef<HTMLInputElement>(null)
+    const [labelsHidden, setLabelsHidden] = useState<boolean>(false)
+
+    const handleChange = () => {
+
+        setLabelsHidden(true)
+        if (inputRef.current?.value === "")
+            setLabelsHidden(false)
+
+        if (inputRef.current?.value)
+        {
+            switch (props.type) {
+                case Data.NAME:
+                    actionSetName(inputRef.current.value)
+                    break;
+                case Data.SURNAME:
+                    actionSetSurname(inputRef.current.value)
+                    break;
+                case Data.EMAIL:
+                    actionSetEmail(inputRef.current.value)
+                    break;
+                case Data.PHONENUMBER:
+                    actionSetPhoneNumber(inputRef.current.value)
+                    break;
+            }
+        }
+    }
 
     return (
         <div>
@@ -21,11 +60,13 @@ const InputText: React.FC<Props> = (props) => {
             >{props.label3}</label>
             }
             <div className={styles.inputContainer}>
-                <label className={styles.typeLabel}>{props.label1}</label>
-                <label className={styles.optionsLabel}>{props.label2}</label>
+                <label hidden={labelsHidden} className={styles.typeLabel}>{props.label1}</label>
+                <label hidden={labelsHidden} className={styles.optionsLabel}>{props.label2}</label>
                 <input
                     className={styles.inputStyle}
                     type="text"
+                    onChange={handleChange}
+                    ref={inputRef}
                 >
                 </input>
             </div>

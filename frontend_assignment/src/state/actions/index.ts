@@ -1,18 +1,31 @@
-import { InputOption } from "../../Types/types"
+import { InputOption, Data, UtulokOption } from "../../Types/types"
 
-// interface SomeInterface {
-//     type: "smth"
-//     payload: "smthn"
-// }
-
-// type Action = SomeInterface | AnotherInterface
-
-export type SelectAction = {
-    type: "set"
-    payload: number
+interface Utulok {
+    type: Data.UTULOK
+    payload: UtulokOption
 }
-
-export type InputAction = {
-    type: "set"
+interface Suma {
+    type: Data.SUM
     payload: InputOption
 }
+interface InputName {
+    type: Data.NAME
+    payload: string
+}
+
+interface InputSurname {
+    type: Data.SURNAME
+    payload: string
+}
+
+interface InputEmail {
+    type: Data.EMAIL
+    payload: string
+}
+
+interface InputPhoneNumber {
+    type: Data.PHONENUMBER
+    payload: string
+}
+
+export type DataAction = InputName | InputSurname | InputEmail | InputPhoneNumber | Utulok | Suma

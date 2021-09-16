@@ -9,9 +9,17 @@ import Paragraph from "../Components/Parts/Paragraph"
 
 import { NavLink } from "react-router-dom"
 
-import { ButtonTypes, ParagraphTypes } from "../Types/types"
+import { ButtonTypes, ParagraphTypes, InputOption, PersonalInformationData, UtulokOption} from "../Types/types"
+
+import { useSelector } from "react-redux"
+import { RootState } from "../state/reducers"
 
 const View3: React.FC = () => {
+
+    const sumData : InputOption = useSelector((state : RootState) => state.sumData)
+    const utulokData : UtulokOption = useSelector((state : RootState) => state.utulokData)
+    const personalData : PersonalInformationData = useSelector((state : RootState) => state.personalData)
+
     return (
         <div>
             <div className={styles.container}>
@@ -38,7 +46,7 @@ const View3: React.FC = () => {
                                 paragraphType = {ParagraphTypes.LabelForm}
                             ></Paragraph>
                             <Paragraph
-                                text= "Mestský útulok, Žilina"
+                                text= {utulokData.name}
                                 paragraphType = {ParagraphTypes.LabelData}
                             ></Paragraph>
                         </div>
@@ -49,7 +57,7 @@ const View3: React.FC = () => {
                                 paragraphType = {ParagraphTypes.LabelForm}
                             ></Paragraph>
                             <Paragraph
-                                text= "50 €"
+                                text= {sumData.value + "€"}
                                 paragraphType = {ParagraphTypes.LabelData}
                             ></Paragraph>
                         </div>
@@ -60,7 +68,7 @@ const View3: React.FC = () => {
                                 paragraphType = {ParagraphTypes.LabelForm}
                             ></Paragraph>
                             <Paragraph
-                                text= "Peter Reguli"
+                                text= {personalData.name + " " + personalData.surName}
                                 paragraphType = {ParagraphTypes.LabelData}
                             ></Paragraph>
                         </div>
@@ -71,7 +79,7 @@ const View3: React.FC = () => {
                                 paragraphType = {ParagraphTypes.LabelForm}
                             ></Paragraph>
                             <Paragraph
-                                text= "peter.reguli@goodrequest.com"
+                                text= {personalData.email}
                                 paragraphType = {ParagraphTypes.LabelData}
                             ></Paragraph>
                         </div>
@@ -82,7 +90,7 @@ const View3: React.FC = () => {
                                 paragraphType = {ParagraphTypes.LabelForm}
                             ></Paragraph>
                             <Paragraph
-                                text= "+421 902 237 207"
+                                text= {personalData.phoneNumber}
                                 paragraphType = {ParagraphTypes.LabelData}
                             ></Paragraph>
                         </div>

@@ -6,11 +6,12 @@ import Header from "../Components/Parts/Header"
 import Footer from "../Components/Parts/Footer"
 import InputText from "../Components/Inputs/InputText"
 import Button from "../Components/Inputs/Button"
-import { ButtonTypes } from "../Types/types"
+import { ButtonTypes, Data } from "../Types/types"
 
 import {NavLink} from "react-router-dom"
 
 const View2: React.FC = () => {
+
     return (
         <div>
             <div className={styles.container}>
@@ -24,18 +25,22 @@ const View2: React.FC = () => {
                         label1 = "Meno"
                         label2 = "Zadajte Vaše meno"
                         label3 = "O Vás"
+                        type = {Data.NAME}
                     />
                     <InputText
                         label1 = "Priezvisko"
                         label2 = "Zadajte Vaše priezvysko"
+                        type = {Data.SURNAME}
                     />
                     <InputText
                         label1 = "E-mailová adresa"
                         label2 = "Zadajte Váš e-mail"
+                        type = {Data.EMAIL}
                     />
                     <InputText
                         label1 = "Telefónne číslo"
                         label2 = "+421"
+                        type = {Data.PHONENUMBER}
                     />
                 </div>
 

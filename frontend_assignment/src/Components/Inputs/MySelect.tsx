@@ -5,10 +5,12 @@ import { ParagraphTypes, UtulokOption } from '../../Types/types'
 
 import styles from "./Select.module.scss"
 
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch} from "react-redux"
 import { bindActionCreators } from "redux"
-import { setUtulokId } from "../../state/action-creators/actionCreators"
-//import { RootState } from "../../state/reducers"
+import { setUtulok } from "../../state/action-creators/actionCreators"
+
+import { useSelector } from "react-redux"
+import { RootState } from "../../state/reducers"
 
 interface Props {
     utulokOptions: UtulokOption[] 
@@ -20,19 +22,41 @@ const MySelect: React.FC<Props> = (props) => {
 
     const selectUtulokRef = useRef<HTMLSelectElement>(null)
 
-    //const pickedUtulok = useSelector((state : RootState) => state.selectId)
     const dispatchPick = useDispatch();
-    const actionPickCreator = bindActionCreators(setUtulokId, dispatchPick)
+    const actionPickCreator = bindActionCreators(setUtulok, dispatchPick)
+    const pickedUtulok : UtulokOption = useSelector((state : RootState) => state.utulokData)
+
 
     const [labelsHidden, setLabelsHidden] = useState<boolean>(false)
 
     const handleChange = () => {
         setLabelsHidden(true)
-        
+
         if (selectUtulokRef.current?.value)
         {
-            var id: number = +selectUtulokRef.current.value
-            actionPickCreator(id);
+            var splits = selectUtulokRef.current.value.split("|")
+            var id : number
+            var name : string
+
+            console.log(splits);
+
+            if (splits[0])
+                id = +splits[0];
+            else return;
+
+            if (splits[1])
+                name = splits[1];
+            else return;
+
+            var utulok : UtulokOption = {
+                id : id,
+                name :  name
+            }
+
+            console.log(utulok)
+
+            actionPickCreator(utulok);
+            console.log(pickedUtulok.id + " " + pickedUtulok.name)
         }
     }
 
@@ -60,7 +84,7 @@ const MySelect: React.FC<Props> = (props) => {
                     <option disabled selected value="">
                     </option>
                     {utulokOptions.map(utulok => (
-                        <option value={utulok.id}>
+                        <option value={utulok.id + "|" + utulok.name}>
                             {utulok.name} 
                         </option>
                     ))}

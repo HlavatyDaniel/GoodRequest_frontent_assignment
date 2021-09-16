@@ -1,11 +1,13 @@
 import { combineReducers  } from "redux";
 
-import selectReducer from "./selectReducer"
-import inputReducer from "./inputReducer"
+import personalInformationReducer from "./personalInformationReducer";
+import utulokReducer from "./utulokReducer";
+import sumReducer from "./sumReducer";
 
 const reducers = combineReducers({
-    selectId: selectReducer,
-    inputItem : inputReducer
+    personalData : personalInformationReducer,
+    utulokData : utulokReducer,
+    sumData : sumReducer
 })
 
 export default reducers

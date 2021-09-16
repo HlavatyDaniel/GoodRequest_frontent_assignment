@@ -24,7 +24,7 @@ const View1: React.FC = () => {
 
     const [utulokOptions, setUtulokOptions] = useState<UtulokOption[]>([])
 
-    const pickedInput : InputOption = useSelector((state : RootState) => state.inputItem)
+    const pickedInput : InputOption = useSelector((state : RootState) => state.sumData)
 
     useEffect(() => {
         const fetchUtulky = () => {
@@ -47,6 +47,7 @@ const View1: React.FC = () => {
 
         fetchUtulky()
     },[]);
+
 
     return (
         <div>
@@ -115,7 +116,7 @@ const View1: React.FC = () => {
                             }
 
                             {pickedInput.value === 100 
-                            ?   <Input inputId={6} value={100} className={styles.inputAmountActive} 
+                            ?   <Input inputId={6} value={100} className={styles.inputAmountActive}
                                 />
                             :   <Input inputId={6} value={100} className={styles.inputAmount} 
                                 />
