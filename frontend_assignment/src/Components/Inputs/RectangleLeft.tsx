@@ -15,15 +15,18 @@ const RectangleLeft: React.FC<Props> = (props) => {
     
     return (
         <div className={styles.rectangleConcrete}>
+
             <div>
                 <img className={styles.walletLogo} src={WalletLogo} alt="WalletLogo"/>
             </div>
+
             <div className={styles.paragraph}>
                 <Paragraph
                 text="Chcem finančne prispieť konkrétnemu útulku"
-                paragraphType = {ParagraphTypes.RectangleLeft}
+                paragraphType = {ParagraphTypes.RECTANGLELEFT}
                 ></Paragraph>
             </div>
+            
         </div>
     )
 }

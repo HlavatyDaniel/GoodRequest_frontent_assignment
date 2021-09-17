@@ -26,6 +26,7 @@ const InputText: React.FC<Props> = (props) => {
     const actionSetSurname = bindActionCreators(setSurname, dispatchSetter)
 
     const inputRef = useRef<HTMLInputElement>(null)
+
     const [labelsHidden, setLabelsHidden] = useState<boolean>(false)
 
     const personalData : PersonalInformationData = useSelector((state : RootState) => state.personalData)
@@ -89,14 +90,18 @@ const InputText: React.FC<Props> = (props) => {
 
     return (
         <div>
+
             {props.label3 !== null &&
             <label 
                 className={styles.topLabel}
             >{props.label3}</label>
             }
+
             <div className={styles.inputContainer}>
+
                 <label hidden={labelsHidden} className={styles.typeLabel}>{props.label1}</label>
                 <label hidden={labelsHidden} className={styles.optionsLabel}>{props.label2}</label>
+                
                 <input
                     className={styles.inputStyle}
                     type="text"
@@ -104,7 +109,9 @@ const InputText: React.FC<Props> = (props) => {
                     ref={inputRef}
                 >
                 </input>
+
             </div>
+            
         </div>
     )
 }

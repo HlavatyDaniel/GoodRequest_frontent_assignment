@@ -1,21 +1,21 @@
 export enum ButtonTypes {
-    Left,
-    Right
+    LEFT,
+    RIGHT
 }
 
 export enum ParagraphTypes {
-    FooterNote,
-    FooterTitle,
-    FooterLogo,
-    FooterAbout,
-    RectangleRight,
-    RectangleLeft,
-    LabelLeft,
-    LabelRight,
-    LabelMain,
-    LabelForm,
-    LabelData,
-    CheckBox
+    FOOTERNOTE,
+    FOOTERTITLE,
+    FOOTERLOGO,
+    FOOTERABOUT,
+    RECTANGLERIGHT,
+    RECTANGLELEFT,
+    LABELRIGHT,
+    LABELLEFT,
+    LABELMAIN,
+    LABELFORM,
+    LABELDATA,
+    CHECKBOX
 }
 
 export enum Data {

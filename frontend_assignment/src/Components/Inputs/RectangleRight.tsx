@@ -15,15 +15,18 @@ const RectangleRight: React.FC<Props> = (props) => {
     
     return (
         <div className={styles.rectangleGeneral}>
+
             <div>
                 <img className={styles.pawLogo} src={PawLogo} alt="PawLogo"/>
             </div>     
+
             <div className={styles.paragraph}>
                 <Paragraph
                     text = "Chcem finančne prispieť celej nadácii"
-                    paragraphType = {ParagraphTypes.RectangleRight}
+                    paragraphType = {ParagraphTypes.RECTANGLERIGHT}
                 ></Paragraph>
             </div>       
+            
         </div>
     )
 }

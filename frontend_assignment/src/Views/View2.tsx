@@ -1,6 +1,4 @@
-import styles from "./View2.module.scss"
-
-import GoodDogo from "../Assets/GoodDogo.png"
+import {NavLink} from "react-router-dom"
 
 import Header from "../Components/Parts/Header"
 import Footer from "../Components/Parts/Footer"
@@ -8,7 +6,9 @@ import InputText from "../Components/Inputs/InputText"
 import Button from "../Components/Inputs/Button"
 import { ButtonTypes, Data } from "../Types/types"
 
-import {NavLink} from "react-router-dom"
+import GoodDogo from "../Assets/GoodDogo.png"
+
+import styles from "./View2.module.scss"
 
 const View2: React.FC = () => {
 
@@ -50,7 +50,7 @@ const View2: React.FC = () => {
                     >
                         <Button
                             text = "Späť"
-                            buttonType = {ButtonTypes.Left}
+                            buttonType = {ButtonTypes.LEFT}
                         />
                     </NavLink>
                 </div>
@@ -61,7 +61,7 @@ const View2: React.FC = () => {
                     >
                         <Button
                             text = "Pokračovať"
-                            buttonType = {ButtonTypes.Right}
+                            buttonType = {ButtonTypes.RIGHT}
                         />
                     </NavLink>
                 </div>

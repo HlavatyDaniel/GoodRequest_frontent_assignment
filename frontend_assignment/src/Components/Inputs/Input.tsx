@@ -8,8 +8,7 @@ import { setInputValue } from "../../state/action-creators/actionCreators"
 import { InputOption } from '../../Types/types'
 
 interface Props {
-    value: number,
-    inputId: number,
+    inputOption : InputOption,
     className : string,
 }
 
@@ -17,15 +16,14 @@ const Input: React.FC<Props> = (props) => {
 
     const dispatchPick = useDispatch();
     const actionPickCreator = bindActionCreators(setInputValue, dispatchPick);
-    const thisInput : InputOption = {id : props.inputId, value : props.value}
 
-    const description : string = props.value.toString() + "€";
+    const description : string = props.inputOption.value.toString() + "€";
     const inputSizeStyle: CSS.Properties = {
         width: (description.length*6 - description.length + 50).toString() + "px"
     }
 
     const handleClick = () => {
-        actionPickCreator(thisInput);
+        actionPickCreator(props.inputOption);
     }
 
     return (      

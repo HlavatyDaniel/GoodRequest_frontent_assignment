@@ -5,7 +5,9 @@ import View2 from "./Views/View2"
 import View3 from "./Views/View3"
 
 function App() {
+
     return (
+
         <main>
             <Switch>
                 <Route path="/" component={View1} exact/>

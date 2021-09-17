@@ -20,13 +20,13 @@ const Select: React.FC<Props> = (props) => {
 
     const {utulokOptions} = props
 
+    const [labelsHidden, setLabelsHidden] = useState<boolean>(false)
+
     const selectUtulokRef = useRef<HTMLSelectElement>(null)
 
     const dispatchPick = useDispatch();
     const actionPickCreator = bindActionCreators(setUtulok, dispatchPick)
     const pickedUtulok : UtulokOption = useSelector((state : RootState) => state.utulokData)
-
-    const [labelsHidden, setLabelsHidden] = useState<boolean>(false)
 
     useEffect(() => {
         const setOption = () => {
@@ -79,17 +79,22 @@ const Select: React.FC<Props> = (props) => {
 
     return (
         <div>
+
             <div className={styles.paragraphContainer}>
+
                 <Paragraph
                     text="O Projekte"
-                    paragraphType= {ParagraphTypes.LabelLeft}
+                    paragraphType= {ParagraphTypes.LABELLEFT}
                 ></Paragraph>
                 <Paragraph
                     text="Nepovinné"
-                    paragraphType= {ParagraphTypes.LabelRight}
+                    paragraphType= {ParagraphTypes.LABELRIGHT}
                 ></Paragraph>
+
             </div>
+
             <div className= {styles.selectContainer}>
+
                 <label  hidden={labelsHidden} className={styles.typeLabel}>Útulok</label>
                 <label  hidden={labelsHidden} className={styles.optionsLabel}>Vyberte útulok zo zoznamu</label>
 
@@ -97,14 +102,17 @@ const Select: React.FC<Props> = (props) => {
                     className={styles.selectUtulok}
                     onChange={handleChange}
                     ref={selectUtulokRef}
-                    >
+                >
+
                     <option disabled selected value="">
                     </option>
-                    {utulokOptions.map(utulok => (
+                    {
+                    utulokOptions.map(utulok => (
                         <option value={utulok.id + "|" + utulok.name}>
                             {utulok.name} 
                         </option>
-                    ))}
+                    ))
+                    }
                 </select>
             </div>
         </div>

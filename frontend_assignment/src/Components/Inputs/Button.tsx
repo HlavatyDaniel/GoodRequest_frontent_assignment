@@ -14,9 +14,9 @@ const Button: React.FC<Props> = (props) => {
 
     var className = "";
 
-    if (props.buttonType === ButtonTypes.Left)
+    if (props.buttonType === ButtonTypes.LEFT)
         className = styles.buttonLeft
-    if (props.buttonType === ButtonTypes.Right)
+    if (props.buttonType === ButtonTypes.RIGHT)
         className = styles.buttonRight
 
     const buttonSizeStyle: CSS.Properties = {

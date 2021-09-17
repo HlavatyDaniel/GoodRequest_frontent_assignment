@@ -1,8 +1,8 @@
-import styles from "./View1.module.scss"
-
-import React, {useState, useEffect} from "react"
-
-import GoodDogo from "../Assets/GoodDogo.png"
+import {useState, useEffect} from "react"
+import {NavLink} from "react-router-dom"
+import axios from "axios"
+import { useSelector } from "react-redux"
+import { RootState } from "../state/reducers"
 
 import Header from "../Components/Parts/Header"
 import RectangleLeft from "../Components/Inputs/RectangleLeft"
@@ -14,17 +14,25 @@ import Input from "../Components/Inputs/Input"
 import Paragraph from "../Components/Parts/Paragraph"
 import {ParagraphTypes, ButtonTypes, UtulokOption, InputOption} from "../Types/types"
 
-import {NavLink} from "react-router-dom"
-import axios from "axios"
+import GoodDogo from "../Assets/GoodDogo.png"
 
-import { useSelector } from "react-redux"
-import { RootState } from "../state/reducers"
+import styles from "./View1.module.scss"
 
 const View1: React.FC = () => {
 
     const [utulokOptions, setUtulokOptions] = useState<UtulokOption[]>([])
 
     const pickedInput : InputOption = useSelector((state : RootState) => state.sumData)
+
+    const inputOptions : InputOption[] = [
+        {id : 1, value: 5}, 
+        {id : 2, value: 10},
+        {id : 3, value: 20},
+        {id : 4, value: 30},
+        {id : 5, value: 50},
+        {id : 6, value: 100}]
+
+    const todoOption : InputOption = {id:  7, value: 0}
 
     useEffect(() => {
         const fetchUtulky = () => {
@@ -76,72 +84,47 @@ const View1: React.FC = () => {
 
                     <Paragraph
                         text = "Suma, ktorou chcem prispieť"
-                        paragraphType = {ParagraphTypes.LabelMain}
+                        paragraphType = {ParagraphTypes.LABELMAIN}
                     ></Paragraph>
 
                     <div>
-                            {pickedInput.value === 5 
-                            ?   <Input inputId={1} value={5} className={styles.inputAmountActive} 
+                        {
+                        inputOptions.map(inputOption => (
+                            pickedInput.value === inputOption.value 
+                            ?   <Input 
+                                    inputOption={inputOption}
+                                    className={styles.inputAmountActive}
                                 />
-                            :   <Input inputId={1} value={5} className={styles.inputAmount} 
+                            :   <Input
+                                    inputOption={inputOption}
+                                    className={styles.inputAmount}
                                 />
-                            }
-
-                            {pickedInput.value === 10 
-                            ?   <Input inputId={2} value={10} className={styles.inputAmountActive} 
-                                />
-                            :   <Input inputId={2} value={10} className={styles.inputAmount} 
-                                />
-                            }
-
-                            {pickedInput.value === 20 
-                            ?   <Input inputId={3} value={20} className={styles.inputAmountActive} 
-                                />
-                            :   <Input inputId={3} value={20} className={styles.inputAmount} 
-                                />
-                            }
-
-                            {pickedInput.value === 30 
-                            ?   <Input inputId={4} value={30} className={styles.inputAmountActive} 
-                                />
-                            :   <Input inputId={4} value={30} className={styles.inputAmount} 
-                                />
-                            }
-
-                            {pickedInput.value === 50 
-                            ?   <Input inputId={5} value={50} className={styles.inputAmountActive} 
-                                />
-                            :   <Input inputId={5} value={50} className={styles.inputAmount} 
-                                />
-                            }
-
-                            {pickedInput.value === 100 
-                            ?   <Input inputId={6} value={100} className={styles.inputAmountActive}
-                                />
-                            :   <Input inputId={6} value={100} className={styles.inputAmount} 
-                                />
-                            }
-                            
-                        <Input inputId={7} value={0} 
+                            ))
+                        }
+                        <Input 
+                            inputOption={todoOption}
                             className={styles.inputAmount}
                         />
                     </div>
                 </div>
 
                 <div className={styles.buttonWrapper}>
+
                     <NavLink 
                         to = "/PersonalInfo"
                     >
                         <Button
                             text = "Pokračovať"
-                            buttonType = {ButtonTypes.Right}
+                            buttonType = {ButtonTypes.RIGHT}
                         />
                     </NavLink>
+
                 </div>
 
                 <div className={styles.imageContainer}>
                     <img src={GoodDogo} alt="GoodDogo"/>
                 </div>
+
             </div>
 
             <div>

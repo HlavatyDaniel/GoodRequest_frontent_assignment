@@ -1,18 +1,16 @@
-import styles from "./View3.module.scss"
-
-import GoodDogo from "../Assets/GoodDogo.png"
+import { NavLink } from "react-router-dom"
+import { useSelector } from "react-redux"
+import { RootState } from "../state/reducers"
 
 import Header from "../Components/Parts/Header"
 import Footer from "../Components/Parts/Footer"
 import Button from "../Components/Inputs/Button"
 import Paragraph from "../Components/Parts/Paragraph"
-
-import { NavLink } from "react-router-dom"
-
 import { ButtonTypes, ParagraphTypes, InputOption, PersonalInformationData, UtulokOption} from "../Types/types"
 
-import { useSelector } from "react-redux"
-import { RootState } from "../state/reducers"
+import GoodDogo from "../Assets/GoodDogo.png"
+
+import styles from "./View3.module.scss"
 
 const View3: React.FC = () => {
 
@@ -30,68 +28,70 @@ const View3: React.FC = () => {
 
                 <div className={styles.paragraphContainer}>
                     <div className={styles.paragraphGrid}>
+
                         <div className={styles.paragraphForm}>
                             <Paragraph
                                 text = "Akou formou chcem pomôcť"
-                                paragraphType = {ParagraphTypes.LabelForm}
+                                paragraphType = {ParagraphTypes.LABELFORM}
                             ></Paragraph>
                             <Paragraph
                                 text= "Chcem finančne prispieť celej nadácii"
-                                paragraphType = {ParagraphTypes.LabelData}
+                                paragraphType = {ParagraphTypes.LABELDATA}
                             ></Paragraph>
                         </div>
+
                         <div className={styles.paragraphUtulok}>
                             <Paragraph
                                 text = "Najviac mi záleží na útulku"
-                                paragraphType = {ParagraphTypes.LabelForm}
+                                paragraphType = {ParagraphTypes.LABELFORM}
                             ></Paragraph>
                             <Paragraph
                                 text= {utulokData.name}
-                                paragraphType = {ParagraphTypes.LabelData}
+                                paragraphType = {ParagraphTypes.LABELDATA}
                             ></Paragraph>
                         </div>
 
                         <div className={styles.paragraphSuma}>
                             <Paragraph
                                 text = "Suma ktorou chcem pomôcť"
-                                paragraphType = {ParagraphTypes.LabelForm}
+                                paragraphType = {ParagraphTypes.LABELFORM}
                             ></Paragraph>
                             <Paragraph
                                 text= {sumData.value + "€"}
-                                paragraphType = {ParagraphTypes.LabelData}
+                                paragraphType = {ParagraphTypes.LABELDATA}
                             ></Paragraph>
                         </div>
 
                         <div className={styles.paragraphName}>
                             <Paragraph
                                 text = "Meno a priezvisko"
-                                paragraphType = {ParagraphTypes.LabelForm}
+                                paragraphType = {ParagraphTypes.LABELFORM}
                             ></Paragraph>
                             <Paragraph
                                 text= {personalData.name + " " + personalData.surName}
-                                paragraphType = {ParagraphTypes.LabelData}
+                                paragraphType = {ParagraphTypes.LABELDATA}
                             ></Paragraph>
                         </div>
 
                         <div className={styles.paragraphEmail}>
                             <Paragraph
                                 text = "E-mailová adresa"
-                                paragraphType = {ParagraphTypes.LabelForm}
+                                paragraphType = {ParagraphTypes.LABELFORM}
                             ></Paragraph>
                             <Paragraph
                                 text= {personalData.email}
-                                paragraphType = {ParagraphTypes.LabelData}
+                                paragraphType = {ParagraphTypes.LABELDATA}
                             ></Paragraph>
                         </div>
 
                         <div className={styles.paragrapghPhone}>
                             <Paragraph
                                 text = "Telefónne číslo"
-                                paragraphType = {ParagraphTypes.LabelForm}
+                                paragraphType = {ParagraphTypes.LABELFORM}
                             ></Paragraph>
                             <Paragraph
                                 text= {personalData.phoneNumber}
-                                paragraphType = {ParagraphTypes.LabelData}
+                                paragraphType = {ParagraphTypes.LABELDATA}
                             ></Paragraph>
                         </div>
 
@@ -104,7 +104,7 @@ const View3: React.FC = () => {
                     />        
                     <Paragraph
                         text="Súhlasím so spracovaním mojich osobných údajov"
-                        paragraphType = {ParagraphTypes.CheckBox}
+                        paragraphType = {ParagraphTypes.CHECKBOX}
                     ></Paragraph>        
                 </div>
 
@@ -118,7 +118,7 @@ const View3: React.FC = () => {
                     >
                         <Button
                             text="Späť"
-                            buttonType={ButtonTypes.Left}
+                            buttonType={ButtonTypes.LEFT}
                         ></Button>
                     </NavLink>
                 </div>
@@ -126,7 +126,7 @@ const View3: React.FC = () => {
                 <div className={styles.buttonNext}>
                     <Button
                     text="Odoslať formulár"
-                    buttonType={ButtonTypes.Right}
+                    buttonType={ButtonTypes.RIGHT}
                     ></Button>
                 </div>
 
