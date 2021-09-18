@@ -66,3 +66,12 @@ export const setRectangle = (value : RectangleType) => {
         })
     }
 }
+
+export const setCheckbox = (value : boolean) => {
+    return (dispatch : Dispatch<DataAction>) => {
+        dispatch({
+            type: Data.CHECKBOX,
+            payload: value
+        })
+    }
+}

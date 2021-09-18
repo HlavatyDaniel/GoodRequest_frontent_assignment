@@ -17,7 +17,6 @@ export enum ParagraphTypes {
     LABELMAIN,
     LABELFORM,
     LABELDATA,
-    CHECKBOX,
     LINKS
 }
 
@@ -28,7 +27,8 @@ export enum Data {
     PHONENUMBER,
     UTULOK,
     SUM,
-    RECTANGLE
+    RECTANGLE,
+    CHECKBOX
 }
 
 export enum RectangleType {

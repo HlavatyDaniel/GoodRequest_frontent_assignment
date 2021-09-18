@@ -7,6 +7,7 @@ import Footer from "../Components/Parts/Footer"
 import Button from "../Components/Inputs/Button"
 import Paragraph from "../Components/Parts/Paragraph"
 import Links from "../Components/Parts/Links"
+import CheckBox from "../Components/Inputs/CheckBox"
 import { ButtonTypes, ParagraphTypes, InputOption, PersonalInformationData, UtulokOption, ViewParagraph, RectangleType} from "../Types/types"
 
 import GoodDogoResized from "../Assets/GoodDogoResized.png"
@@ -19,6 +20,7 @@ const View3: React.FC = () => {
     const utulokData : UtulokOption = useSelector((state : RootState) => state.utulokData)
     const personalData : PersonalInformationData = useSelector((state : RootState) => state.personalData)
     const rectangleData : RectangleType = useSelector((state : RootState) => state.rectangleData)
+    const checkBoxData : boolean = useSelector((state : RootState) => state.checkBoxData)
 
     let nadaciaText : string = ""
     if (rectangleData === RectangleType.CONRETE)
@@ -78,13 +80,7 @@ const View3: React.FC = () => {
                         }
 
                         <div className={styles.checkboxContainer}>
-                            <input 
-                                type="checkbox"
-                            />        
-                            <Paragraph
-                                text="Súhlasím so spracovaním mojich osobných údajov"
-                                paragraphType = {ParagraphTypes.CHECKBOX}
-                            ></Paragraph>        
+                            <CheckBox/>
                         </div>
 
                     </div>

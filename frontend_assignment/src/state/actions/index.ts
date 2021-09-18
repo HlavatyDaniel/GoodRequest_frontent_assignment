@@ -33,4 +33,9 @@ interface InputRectangle {
     payload: RectangleType
 }
 
-export type DataAction = InputName | InputSurname | InputEmail | InputPhoneNumber | Utulok | Suma | InputRectangle
+interface InputCheckBox {
+    type: Data.CHECKBOX
+    payload: boolean
+}
+
+export type DataAction = InputName | InputSurname | InputEmail | InputPhoneNumber | Utulok | Suma | InputRectangle | InputCheckBox

@@ -38,8 +38,6 @@ const Paragraph: React.FC<Props> = (props) => {
         className = styles.labelData
     else if (props.paragraphType === ParagraphTypes.LABELFORM)
         className = styles.labelForm
-    else if (props.paragraphType === ParagraphTypes.CHECKBOX)
-        className = styles.checkBox
     else if (props.paragraphType === ParagraphTypes.LINKS)
         className = styles.links
         

@@ -84,14 +84,6 @@
     overflow: hidden;
 }
 
-.checkBox {
-    @extend %rectangleParagraph;
-    font-weight: normal;
-    color: #2F2F2F;
-    opacity: 0.8;
-    display: inline-block;
-}
-
 .labelRight {
     @extend %labelParagraph;
     font-size: 14px;
