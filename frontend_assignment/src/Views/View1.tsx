@@ -6,10 +6,11 @@ import { RootState } from "../state/reducers"
 
 import Header from "../Components/Parts/Header"
 import Rectangle from "../Components/Inputs/Rectangle"
-import MySelect from "../Components/Inputs/MySelect"
+import Select from "../Components/Inputs/Select"
 import Button from "../Components/Inputs/Button"
 import Footer from "../Components/Parts/Footer"
 import Input from "../Components/Inputs/Input"
+import InputCustomSum from "../Components/Inputs/InputCustomSum"
 import Paragraph from "../Components/Parts/Paragraph"
 import {ParagraphTypes, ButtonTypes, UtulokOption, InputOption, RectangleType} from "../Types/types"
 
@@ -79,7 +80,7 @@ const View1: React.FC = () => {
                 </div>
 
                 <div className={styles.inputUtulok}>
-                    <MySelect
+                    <Select
                         utulokOptions = {utulokOptions}
                     />
                 </div>
@@ -101,14 +102,26 @@ const View1: React.FC = () => {
                                 />
                             :   <Input
                                     inputOption={inputOption}
-                                    className={styles.inputAmount}
+                                    className={styles.inputAmountInactive}
                                 />
                             ))
                         }
-                        <Input 
-                            inputOption={todoOption}
-                            className={styles.inputAmount}
-                        />
+                        {
+                        pickedInput.id === 7 
+                        ?   <InputCustomSum
+                                id = {7}
+                                classNameDiv={styles.inputCustomSumDivActive}
+                                classNameInput={styles.inputCustomSumActive}
+                                classNameEuroSign={styles.inputEuroSignActive}
+                            />
+                        :   <InputCustomSum
+                                id = {7}
+                                classNameDiv={styles.inputCustomDivInactive}
+                                classNameInput={styles.inputCustomSumInactive}
+                                classNameEuroSign={styles.inputEuroSignInactive}
+
+                            />
+                        }
                     </div>
                 </div>
 

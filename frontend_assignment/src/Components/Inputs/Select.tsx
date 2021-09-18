@@ -16,7 +16,7 @@ interface Props {
     utulokOptions: UtulokOption[] 
 }
 
-const MySelect: React.FC<Props> = (props) => {
+const Select: React.FC<Props> = (props) => {
 
     const {utulokOptions} = props
 
@@ -125,4 +125,4 @@ const MySelect: React.FC<Props> = (props) => {
     )
 }
 
-export default MySelect
+export default Select
