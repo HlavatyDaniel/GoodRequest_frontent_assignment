@@ -5,16 +5,15 @@ import { useSelector } from "react-redux"
 import { RootState } from "../state/reducers"
 
 import Header from "../Components/Parts/Header"
-import RectangleLeft from "../Components/Inputs/RectangleLeft"
-import RectangleRight from "../Components/Inputs/RectangleRight"
-import Select from "../Components/Inputs/Select"
+import Rectangle from "../Components/Inputs/Rectangle"
+import MySelect from "../Components/Inputs/MySelect"
 import Button from "../Components/Inputs/Button"
 import Footer from "../Components/Parts/Footer"
 import Input from "../Components/Inputs/Input"
 import Paragraph from "../Components/Parts/Paragraph"
-import {ParagraphTypes, ButtonTypes, UtulokOption, InputOption} from "../Types/types"
+import {ParagraphTypes, ButtonTypes, UtulokOption, InputOption, RectangleType} from "../Types/types"
 
-import GoodDogo from "../Assets/GoodDogo.png"
+import GoodDogoResized from "../Assets/GoodDogoResized.png"
 
 import styles from "./View1.module.scss"
 
@@ -23,6 +22,7 @@ const View1: React.FC = () => {
     const [utulokOptions, setUtulokOptions] = useState<UtulokOption[]>([])
 
     const pickedInput : InputOption = useSelector((state : RootState) => state.sumData)
+    const pickedRectangle : RectangleType = useSelector((state : RootState) => state.rectangleData)
 
     const inputOptions : InputOption[] = [
         {id : 1, value: 5}, 
@@ -66,16 +66,20 @@ const View1: React.FC = () => {
                 </div>
 
                 <div className={styles.rectangleContainer}>
-                    <RectangleLeft 
-                        text="Chcem finančne prispieť konkrétnemu útulku"
-                    />
-                    <RectangleRight 
-                        text="Chcem finančne prispieť celej nadácii"
-                    />
+                    <Rectangle
+                        type={RectangleType.CONRETE}
+                        active={pickedRectangle === RectangleType.CONRETE ? true : false}
+                    ></Rectangle>
+
+                    <Rectangle
+                        type={RectangleType.GENERAL}
+                        active={pickedRectangle === RectangleType.GENERAL ? true : false}
+                    ></Rectangle>
+
                 </div>
 
                 <div className={styles.inputUtulok}>
-                    <Select
+                    <MySelect
                         utulokOptions = {utulokOptions}
                     />
                 </div>
@@ -122,13 +126,12 @@ const View1: React.FC = () => {
                 </div>
 
                 <div className={styles.imageContainer}>
-                    <img src={GoodDogo} alt="GoodDogo"/>
+                    <img src={GoodDogoResized} alt="GoodDogo"/>
                 </div>
 
             </div>
 
             <div>
-                <hr/>
                 <Footer/>
             </div>
         </div>

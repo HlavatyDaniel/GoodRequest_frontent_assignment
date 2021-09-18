@@ -25,6 +25,7 @@ option {
     top: 90px;
     left: 20px;
     position: absolute;
+    pointer-events: none;
 }
 
 .typeLabel {
@@ -33,6 +34,7 @@ option {
     position: absolute;
     top: 70px;
     left: 20px;
+    pointer-events: none;
 }
 
 .selectContainer {

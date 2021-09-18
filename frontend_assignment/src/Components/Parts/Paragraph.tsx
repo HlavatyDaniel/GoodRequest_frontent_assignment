@@ -20,10 +20,14 @@ const Paragraph: React.FC<Props> = (props) => {
         className = styles.footerNote
     else if (props.paragraphType === ParagraphTypes.FOOTERTITLE)
         className = styles.footerTitle
-    else if (props.paragraphType === ParagraphTypes.RECTANGLELEFT)
-        className = styles.rectangleLeft
-    else if (props.paragraphType === ParagraphTypes.RECTANGLERIGHT)
-        className = styles.rectangleRight
+    else if (props.paragraphType === ParagraphTypes.RECTANGLELEFTACTIVE)
+        className = styles.rectangleLeftActive
+    else if (props.paragraphType === ParagraphTypes.RECTANGLERIGHTACTIVE)
+        className = styles.rectangleRightActive
+    else if (props.paragraphType === ParagraphTypes.RECTANGLELEFTINACTIVE)
+        className = styles.rectangleLeftInactive
+    else if (props.paragraphType === ParagraphTypes.RECTANGLERIGHTINACTIVE)
+        className = styles.rectangleRightInactive
     else if (props.paragraphType === ParagraphTypes.LABELLEFT)
         className = styles.labelLeft
     else if (props.paragraphType === ParagraphTypes.LABELRIGHT)
@@ -36,6 +40,8 @@ const Paragraph: React.FC<Props> = (props) => {
         className = styles.labelForm
     else if (props.paragraphType === ParagraphTypes.CHECKBOX)
         className = styles.checkBox
+    else if (props.paragraphType === ParagraphTypes.LINKS)
+        className = styles.links
         
     return (
         <p className={className}>{props.text}</p>

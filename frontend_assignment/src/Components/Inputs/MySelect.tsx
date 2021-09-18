@@ -16,7 +16,7 @@ interface Props {
     utulokOptions: UtulokOption[] 
 }
 
-const Select: React.FC<Props> = (props) => {
+const MySelect: React.FC<Props> = (props) => {
 
     const {utulokOptions} = props
 
@@ -95,15 +95,21 @@ const Select: React.FC<Props> = (props) => {
 
             <div className= {styles.selectContainer}>
 
-                <label  hidden={labelsHidden} className={styles.typeLabel}>Útulok</label>
-                <label  hidden={labelsHidden} className={styles.optionsLabel}>Vyberte útulok zo zoznamu</label>
+                <label  
+                    hidden={labelsHidden}
+                    className={styles.typeLabel}
+                >Útulok</label>
+
+                <label  
+                    hidden={labelsHidden} 
+                    className={styles.optionsLabel}
+                >Vyberte útulok zo zoznamu</label>
 
                 <select
                     className={styles.selectUtulok}
                     onChange={handleChange}
                     ref={selectUtulokRef}
                 >
-
                     <option disabled selected value="">
                     </option>
                     {
@@ -119,4 +125,4 @@ const Select: React.FC<Props> = (props) => {
     )
 }
 
-export default Select
+export default MySelect

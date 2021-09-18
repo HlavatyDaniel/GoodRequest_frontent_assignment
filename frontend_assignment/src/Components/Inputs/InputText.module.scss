@@ -13,6 +13,7 @@
     top: 50px;
     left: 20px;
     position: absolute;
+    pointer-events: none;
 }
 
 .typeLabel {
@@ -21,6 +22,7 @@
     position: absolute;
     top: 30px;
     left: 20px;
+    pointer-events: none;
 }
 
 .topLabel {

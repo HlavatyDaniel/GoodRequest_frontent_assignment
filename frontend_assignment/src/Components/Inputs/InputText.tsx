@@ -24,12 +24,11 @@ const InputText: React.FC<Props> = (props) => {
     const actionSetPhoneNumber = bindActionCreators(setPhoneNumber, dispatchSetter)
     const actionSetName = bindActionCreators(setName, dispatchSetter)
     const actionSetSurname = bindActionCreators(setSurname, dispatchSetter)
+    const personalData : PersonalInformationData = useSelector((state : RootState) => state.personalData)
 
     const inputRef = useRef<HTMLInputElement>(null)
 
     const [labelsHidden, setLabelsHidden] = useState<boolean>(false)
-
-    const personalData : PersonalInformationData = useSelector((state : RootState) => state.personalData)
 
     useEffect(() => {
         const setText = () => {
@@ -98,10 +97,16 @@ const InputText: React.FC<Props> = (props) => {
             }
 
             <div className={styles.inputContainer}>
-
-                <label hidden={labelsHidden} className={styles.typeLabel}>{props.label1}</label>
-                <label hidden={labelsHidden} className={styles.optionsLabel}>{props.label2}</label>
                 
+                <label 
+                    hidden={labelsHidden} 
+                    className={styles.typeLabel}
+                >{props.label1}</label>
+                <label 
+                    hidden={labelsHidden} 
+                    className={styles.optionsLabel}
+                >{props.label2}</label>
+
                 <input
                     className={styles.inputStyle}
                     type="text"

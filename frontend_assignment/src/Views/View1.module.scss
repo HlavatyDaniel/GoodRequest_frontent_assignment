@@ -1,47 +1,48 @@
 .container {
     margin: auto;
-    width: 50vw;
-    height: 90vh;
+    height: 80vh;
 
     display: grid;
 
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1.5fr 1fr 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr;
+    grid-template-rows: 0.5fr 1fr 1.5fr 1fr 1fr 1fr;
+    //1 MiniHeader | 2 Header | 3 Rectangles | 4 Select | 5 Inputs | 6 Button
 }
 
 .header {
-    grid-column-start: 1;
-    grid-column-end: 3;
+    grid-row: 2;
+    grid-column-start: 2;
+    grid-column-end: 4;
 }
 
 .rectangleContainer {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row: 2;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row: 3;
 }
 
 .imageContainer {
-    grid-column: 3;
-    grid-row-start: 1;
+    grid-column: 4;
+    grid-row-start: 2;
     grid-row-end: 6;
 }
 
 .inputUtulok {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row: 3;
-}
-
-.inputSumaContainer {
-    grid-column-start: 1;
-    grid-column-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 4;
     grid-row: 4;
 }
 
-.buttonWrapper {
-    grid-column-start: 1;
-    grid-column-end: 3;
+.inputSumaContainer {
+    grid-column-start: 2;
+    grid-column-end: 4;
     grid-row: 5;
+}
+
+.buttonWrapper {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row: 6;
 }
 
 .inputAmount {

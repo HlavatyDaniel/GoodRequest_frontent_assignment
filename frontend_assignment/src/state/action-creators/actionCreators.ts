@@ -1,6 +1,6 @@
 import { DataAction} from "../actions"
 
-import { InputOption, UtulokOption, Data } from "../../Types/types"
+import { InputOption, UtulokOption, Data, RectangleType } from "../../Types/types"
 
 import { Dispatch } from "redux"
 
@@ -53,6 +53,15 @@ export const setPhoneNumber = (value : string) => {
     return (dispatch : Dispatch<DataAction>) => {
         dispatch({
             type: Data.PHONENUMBER,
+            payload: value
+        })
+    }
+}
+
+export const setRectangle = (value : RectangleType) => {
+    return (dispatch : Dispatch<DataAction>) => {
+        dispatch({
+            type: Data.RECTANGLE,
             payload: value
         })
     }

@@ -1,0 +1,37 @@
+.container {
+    max-height: 20px;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 5fr 1fr 0.5fr;
+    grid-template-rows: 1fr;
+}
+
+.links {
+    grid-column: 4;
+    grid-row: 1;
+}
+
+.fbLogo {
+    margin-right: 2em;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+.fbLogo:hover {
+    opacity: 1;
+}
+
+.instagramLogo {
+    display: inline-block;
+    margin-right: 0.2em;
+    opacity: 0.5;
+}
+
+.instagramLogo:hover { 
+    opacity: 1;
+}
+
+.line {
+    background-color: rgba(47, 47, 47, 0.16);
+    margin-right: auto;  
+    margin-left: auto;    
+}

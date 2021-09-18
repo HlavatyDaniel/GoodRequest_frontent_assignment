@@ -1,4 +1,4 @@
-import { InputOption, Data, UtulokOption } from "../../Types/types"
+import { InputOption, Data, UtulokOption, RectangleType } from "../../Types/types"
 
 interface Utulok {
     type: Data.UTULOK
@@ -28,4 +28,9 @@ interface InputPhoneNumber {
     payload: string
 }
 
-export type DataAction = InputName | InputSurname | InputEmail | InputPhoneNumber | Utulok | Suma
+interface InputRectangle {
+    type: Data.RECTANGLE
+    payload: RectangleType
+}
+
+export type DataAction = InputName | InputSurname | InputEmail | InputPhoneNumber | Utulok | Suma | InputRectangle

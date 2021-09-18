@@ -4,9 +4,10 @@ import Header from "../Components/Parts/Header"
 import Footer from "../Components/Parts/Footer"
 import InputText from "../Components/Inputs/InputText"
 import Button from "../Components/Inputs/Button"
+import Links from "../Components/Parts/Links"
 import { ButtonTypes, Data } from "../Types/types"
 
-import GoodDogo from "../Assets/GoodDogo.png"
+import GoodDogoResized from "../Assets/GoodDogoResized.png"
 
 import styles from "./View2.module.scss"
 
@@ -14,7 +15,12 @@ const View2: React.FC = () => {
 
     return (
         <div>
+
             <div className={styles.container}>
+
+                <div className={styles.links}>
+                    <Links/>
+                </div>  
 
                 <div className={styles.header}>
                     <Header viewName='Potrebujeme od Vás zopár informácií'/>
@@ -67,14 +73,12 @@ const View2: React.FC = () => {
                 </div>
 
                 <div className={styles.imageContainer}>
-                    <img src={GoodDogo} alt="GoodDogo"/>
+                    <img src={GoodDogoResized} alt="GoodDogo"/>
                 </div>
             </div>
 
             <div>
-                <hr/>
-                <Footer>
-                </Footer>
+                <Footer/>
             </div>
         </div>
     )

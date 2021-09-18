@@ -22,6 +22,17 @@
     line-height: 19px;
 }
 
+.links {
+    @extend %labelParagraph;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: #9F9F9F;
+    display : inline-block;
+    grid-column: 2;
+    margin-top: 2px;
+}
+
 .footerAbout{
     @extend %footerParagraph;
     line-height: 200%;
@@ -49,12 +60,22 @@
     display: inline-block;
 }
 
-.rectangleLeft {
+.rectangleLeftInactive {
     @extend %rectangleParagraph;
     color: #585757;
 }
 
-.rectangleRight {
+.rectangleRightInactive {
+    @extend %rectangleParagraph;
+    color: #585757;
+}
+
+.rectangleLeftActive {
+    @extend %rectangleParagraph;
+    color: #FFFFFF;
+}
+
+.rectangleRightActive {
     @extend %rectangleParagraph;
     color: #FFFFFF;
 }

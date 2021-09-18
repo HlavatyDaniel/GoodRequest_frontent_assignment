@@ -8,14 +8,17 @@ export enum ParagraphTypes {
     FOOTERTITLE,
     FOOTERLOGO,
     FOOTERABOUT,
-    RECTANGLERIGHT,
-    RECTANGLELEFT,
+    RECTANGLERIGHTACTIVE,
+    RECTANGLERIGHTINACTIVE,
+    RECTANGLELEFTACTIVE,
+    RECTANGLELEFTINACTIVE,
     LABELRIGHT,
     LABELLEFT,
     LABELMAIN,
     LABELFORM,
     LABELDATA,
-    CHECKBOX
+    CHECKBOX,
+    LINKS
 }
 
 export enum Data {
@@ -24,18 +27,25 @@ export enum Data {
     EMAIL,
     PHONENUMBER,
     UTULOK,
-    SUM
+    SUM,
+    RECTANGLE
+}
+
+export enum RectangleType {
+    CONRETE,
+    GENERAL,
+    NONE
 }
 
 export interface UtulokOption {
     id: number,
     name : string
 }
-
 export interface InputOption {
     id : number,
     value : number
 }
+
 export interface PersonalInformationData {
     name : string,
     surName : string,
@@ -43,6 +53,13 @@ export interface PersonalInformationData {
     phoneNumber : string
 }
 
+export interface ViewParagraph {
+    divClass : string, 
+    firstText: string, 
+    firstParagraphType: ParagraphTypes,
+    secondText: string, 
+    secondParagraphType: ParagraphTypes
+}
 export interface PickedData {
     utulokOption : UtulokOption,
     inputOption : InputOption,
