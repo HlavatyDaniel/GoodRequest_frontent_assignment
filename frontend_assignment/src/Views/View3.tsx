@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { RootState } from "../state/reducers"
@@ -24,7 +24,7 @@ const View3: React.FC = () => {
     const dispatchPick = useDispatch();
     const actionPickCreator = bindActionCreators(setCheckbox, dispatchPick) 
     const sumData : SumOption = useSelector((state : RootState) => state.sumData)
-    const utulokData : ShelterOption = useSelector((state : RootState) => state.shelterData)
+    const shelterData : ShelterOption = useSelector((state : RootState) => state.shelterData)
     const personalData : PersonalInformationData = useSelector((state : RootState) => state.personalData)
     const rectangleData : RectangleType = useSelector((state : RootState) => state.rectangleData)
     const checkBoxData : boolean = useSelector((state : RootState) => state.checkBoxData)
@@ -38,23 +38,25 @@ const View3: React.FC = () => {
     const paragraphOptions : ViewParagraph[] = [
         {divClass: styles.paragraphForm, firstText: "Akou formou chcem pomôcť",
         firstParagraphType: ParagraphTypes.LABELFORM, secondText: nadaciaText,
-        secondParagraphType: ParagraphTypes.LABELDATA},
-        {divClass: styles.paragraphUtulok, firstText: "Najviac mi záleží na útulku",
-        firstParagraphType: ParagraphTypes.LABELFORM, secondText: utulokData.name,
-        secondParagraphType: ParagraphTypes.LABELDATA},
+        secondParagraphType: ParagraphTypes.LABELDATA, key: 1},
+        {divClass: styles.paragraphShelter, firstText: "Najviac mi záleží na útulku",
+        firstParagraphType: ParagraphTypes.LABELFORM, secondText: shelterData.name,
+        secondParagraphType: ParagraphTypes.LABELDATA, key: 2},
         {divClass: styles.paragraphSuma, firstText: "Suma ktorou chcem pomôcť",
         firstParagraphType: ParagraphTypes.LABELFORM, secondText: sumData.value + "€",
-        secondParagraphType: ParagraphTypes.LABELDATA},
+        secondParagraphType: ParagraphTypes.LABELDATA, key: 3},
         {divClass: styles.paragraphName, firstText: "Meno a priezvisko",
         firstParagraphType: ParagraphTypes.LABELFORM, secondText: personalData.name + " " + personalData.surName,
-        secondParagraphType: ParagraphTypes.LABELDATA},
+        secondParagraphType: ParagraphTypes.LABELDATA, key: 4},
         {divClass: styles.paragraphEmail, firstText: "E-mailová adresa",
         firstParagraphType: ParagraphTypes.LABELFORM, secondText: personalData.email,
-        secondParagraphType: ParagraphTypes.LABELDATA},
+        secondParagraphType: ParagraphTypes.LABELDATA, key: 5},
         {divClass: styles.paragrapghPhone, firstText: "Telefónne číslo",
         firstParagraphType: ParagraphTypes.LABELFORM, secondText: personalData.phoneNumber,
-        secondParagraphType: ParagraphTypes.LABELDATA}
+        secondParagraphType: ParagraphTypes.LABELDATA, key: 6}
     ]
+
+    const [responseText, setResponseText] = useState<string>('')
 
     useEffect(() => {
         const unsetCheckbox = () => {
@@ -75,11 +77,20 @@ const View3: React.FC = () => {
         postData.value = sumData.value.toString()
         let phoneNumber : string = "0" + personalData.phoneNumber.substr(4)
         postData.phone = phoneNumber
-        if (utulokData.id !== 0)
-            postData.shelterId = utulokData.id
+        if (shelterData.id !== 0)
+            postData.shelterId = shelterData.id
+
+        console.log(postData);
 
         axios.post('https://frontend-assignment-api.goodrequest.com/api/v1/shelters/contribute', postData)
-            .then(response => console.log(response))
+            .then(response => {
+                if (response.status === 200)
+                    setResponseText("      Odoslané      ")
+                else
+                    setResponseText("Something went wrong")
+            }).catch(error => {
+                setResponseText("Something went wrong")
+            })
     }
 
     return (
@@ -105,14 +116,16 @@ const View3: React.FC = () => {
 
                         {
                         paragraphOptions.map(paragraphOption => (
-                            <div className={paragraphOption.divClass}>
+                            <div className={paragraphOption.divClass} key={paragraphOption.key+20}>
                                 <Paragraph
                                     text = {paragraphOption.firstText}
                                     paragraphType = {paragraphOption.firstParagraphType}
+                                    key={paragraphOption.key}
                                 ></Paragraph>
                                 <Paragraph
                                     text = {paragraphOption.secondText}
                                     paragraphType = {paragraphOption.secondParagraphType}
+                                    key={paragraphOption.key + 10}
                                 ></Paragraph>
                             </div>
                             ))
@@ -138,6 +151,10 @@ const View3: React.FC = () => {
                             buttonType={ButtonTypes.LEFT}
                         ></Button>
                     </NavLink>
+                </div>
+            
+                <div className={styles.center}>
+                    <p className={styles.postResponse}>{responseText}</p>
                 </div>
 
                 <div className={styles.buttonNext}>

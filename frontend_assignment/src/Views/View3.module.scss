@@ -23,7 +23,7 @@
     grid-row: 1;
 }
 
-.paragraphUtulok {
+.paragraphShelter {
     grid-row: 2;
 }
 
@@ -45,4 +45,19 @@
 
 .checkboxContainer {
     grid-row: 7;
+}
+
+.center {
+    grid-row: 7;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    text-align: center;
+    pointer-events: none;
+}
+
+.postResponse {
+    font-family: 'Public Sans', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    margin-right: 8em;
 }

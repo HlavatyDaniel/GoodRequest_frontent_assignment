@@ -57,7 +57,8 @@ export interface ViewParagraph {
     firstText: string, 
     firstParagraphType: ParagraphTypes,
     secondText: string, 
-    secondParagraphType: ParagraphTypes
+    secondParagraphType: ParagraphTypes,
+    key: number,
 }
 export interface PostData {
     firstName : string,

@@ -115,10 +115,12 @@ const View1: React.FC = () => {
                             ?   <Input 
                                     sumOption={sumOption}
                                     active={true}
+                                    key={sumOption.id}
                                 />
                             :   <Input
                                     sumOption={sumOption}
                                     active={false}
+                                    key={sumOption.id}
                                 />
                             ))
                         }

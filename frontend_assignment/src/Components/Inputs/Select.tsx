@@ -113,13 +113,16 @@ const Select: React.FC<Props> = (props) => {
                     className={styles.selectShelter}
                     onChange={handleChange}
                     ref={selectShelterRef}
+                    defaultValue=""
                 >
-                    <option disabled selected value="">
+                    <option disabled /*selected*/ value="">
                     </option>
                     {
                     shelterOptions.map(shelter => (
-                        <option value={shelter.id + "|" + shelter.name}>
-                            {shelter.name} 
+                        <option 
+                            value={shelter.id + "|" + shelter.name}
+                            key={shelter.id}
+                        >{shelter.name} 
                         </option>
                     ))
                     }
