@@ -16,8 +16,10 @@ const Button: React.FC<Props> = (props) => {
 
     if (props.buttonType === ButtonTypes.LEFT)
         className = styles.buttonLeft
-    if (props.buttonType === ButtonTypes.RIGHT)
-        className = styles.buttonRight
+    if (props.buttonType === ButtonTypes.RIGHTACTIVE)
+        className = styles.buttonRightActive
+    if (props.buttonType === ButtonTypes.RIGHTINACTIVE)
+        className = styles.buttonRightInactive
 
     const buttonSizeStyle: CSS.Properties = {
         width: (props.text.length*7 + 60).toString() + "px"

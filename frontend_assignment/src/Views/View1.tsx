@@ -24,6 +24,7 @@ const View1: React.FC = () => {
 
     const pickedInput : InputOption = useSelector((state : RootState) => state.sumData)
     const pickedRectangle : RectangleType = useSelector((state : RootState) => state.rectangleData)
+    const pickedOption : UtulokOption = useSelector((state : RootState) => state.utulokData)
 
     const inputOptions : InputOption[] = [
         {id : 1, value: 5}, 
@@ -55,6 +56,16 @@ const View1: React.FC = () => {
         fetchUtulky()
     },[]);
 
+    const checkData = () => {
+        if (pickedInput.value !== 0)
+        {
+            if (pickedRectangle === RectangleType.CONRETE && pickedOption.id !== 0)
+                return true;
+            else if (pickedRectangle === RectangleType.GENERAL)
+                return true;
+        }
+        return false;
+    }
 
     return (
         <div>
@@ -124,16 +135,21 @@ const View1: React.FC = () => {
                 </div>
 
                 <div className={styles.buttonWrapper}>
-
-                    <NavLink 
-                        to = "/PersonalInfo"
-                    >
-                        <Button
-                            text = "Pokračovať"
-                            buttonType = {ButtonTypes.RIGHT}
-                        />
-                    </NavLink>
-
+                    {
+                        checkData() 
+                        ?   <NavLink 
+                                to = "/PersonalInfo"
+                            >
+                            <Button
+                                text = "Pokračovať"
+                                buttonType = {ButtonTypes.RIGHTACTIVE}
+                            />
+                            </NavLink>
+                        :   <Button
+                                text = "Pokračovať"
+                                buttonType = {ButtonTypes.RIGHTINACTIVE}
+                            />
+                    }
                 </div>
 
                 <div className={styles.imageContainer}>

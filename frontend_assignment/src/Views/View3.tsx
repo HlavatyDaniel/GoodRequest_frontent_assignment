@@ -20,7 +20,7 @@ const View3: React.FC = () => {
     const utulokData : UtulokOption = useSelector((state : RootState) => state.utulokData)
     const personalData : PersonalInformationData = useSelector((state : RootState) => state.personalData)
     const rectangleData : RectangleType = useSelector((state : RootState) => state.rectangleData)
-    // const checkBoxData : boolean = useSelector((state : RootState) => state.checkBoxData)
+    const checkBoxData : boolean = useSelector((state : RootState) => state.checkBoxData)
 
     let nadaciaText : string = ""
     if (rectangleData === RectangleType.CONRETE)
@@ -102,10 +102,21 @@ const View3: React.FC = () => {
                 </div>
 
                 <div className={styles.buttonNext}>
-                    <Button
-                    text="Odoslať formulár"
-                    buttonType={ButtonTypes.RIGHT}
-                    ></Button>
+                {
+                    checkBoxData
+                    ?   <NavLink 
+                            to = "/PersonalInfo"
+                        >
+                        <Button
+                            text = "Pokračovať"
+                            buttonType = {ButtonTypes.RIGHTACTIVE}
+                        />
+                        </NavLink>
+                    :   <Button
+                            text = "Pokračovať"
+                            buttonType = {ButtonTypes.RIGHTINACTIVE}
+                        />
+                }
                 </div>
 
             </div>

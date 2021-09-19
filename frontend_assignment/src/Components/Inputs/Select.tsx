@@ -1,7 +1,7 @@
 import React, {useState, useRef, useEffect} from 'react'
 
 import Paragraph from '../Parts/Paragraph'
-import { ParagraphTypes, UtulokOption } from '../../Types/types'
+import { ParagraphTypes, RectangleType, UtulokOption } from '../../Types/types'
 
 import styles from "./Select.module.scss"
 
@@ -27,6 +27,7 @@ const Select: React.FC<Props> = (props) => {
     const dispatchPick = useDispatch();
     const actionPickCreator = bindActionCreators(setUtulok, dispatchPick)
     const pickedUtulok : UtulokOption = useSelector((state : RootState) => state.utulokData)
+    const pickedRectangle : RectangleType = useSelector((state : RootState) => state.rectangleData)
 
     useEffect(() => {
         const setOption = () => {
@@ -86,10 +87,13 @@ const Select: React.FC<Props> = (props) => {
                     text="O Projekte"
                     paragraphType= {ParagraphTypes.LABELLEFT}
                 ></Paragraph>
-                <Paragraph
-                    text="Nepovinné"
-                    paragraphType= {ParagraphTypes.LABELRIGHT}
-                ></Paragraph>
+                {
+                    pickedRectangle !== RectangleType.CONRETE &&
+                    <Paragraph
+                        text="Nepovinné"
+                        paragraphType= {ParagraphTypes.LABELRIGHT}
+                    ></Paragraph>
+                }
 
             </div>
 

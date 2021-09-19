@@ -1,17 +1,29 @@
+import React, {useState} from 'react'
+
 import {NavLink} from "react-router-dom"
+import { useSelector } from "react-redux"
+import { RootState } from "../state/reducers"
 
 import Header from "../Components/Parts/Header"
 import Footer from "../Components/Parts/Footer"
 import InputText from "../Components/Inputs/InputText"
 import Button from "../Components/Inputs/Button"
 import Links from "../Components/Parts/Links"
-import { ButtonTypes, Data } from "../Types/types"
+import { ButtonTypes, Data, PersonalInformationData } from "../Types/types"
 
 import GoodDogoResized from "../Assets/GoodDogoResized.png"
 
 import styles from "./View2.module.scss"
 
 const View2: React.FC = () => {
+
+    //const personalData : PersonalInformationData = useSelector((state : RootState) => state.personalData)
+
+    const [dataFilled, setDataFilled] = useState<boolean>(false)
+
+    const handleDataChange = (value : boolean) => {
+        setDataFilled(value)
+    }
 
     return (
         <div>
@@ -32,21 +44,25 @@ const View2: React.FC = () => {
                         label2 = "Zadajte Vaše meno"
                         label3 = "O Vás"
                         type = {Data.NAME}
+                        onDataChange={handleDataChange}
                     />
                     <InputText
                         label1 = "Priezvisko"
                         label2 = "Zadajte Vaše priezvysko"
                         type = {Data.SURNAME}
+                        onDataChange={handleDataChange}
                     />
                     <InputText
                         label1 = "E-mailová adresa"
                         label2 = "Zadajte Váš e-mail"
                         type = {Data.EMAIL}
+                        onDataChange={handleDataChange}
                     />
                     <InputText
                         label1 = "Telefónne číslo"
                         label2 = "+421"
                         type = {Data.PHONENUMBER}
+                        onDataChange={handleDataChange}
                     />
                 </div>
 
@@ -62,14 +78,21 @@ const View2: React.FC = () => {
                 </div>
 
                 <div className={styles.buttonNext}>
-                    <NavLink 
-                        to = "/Confimation"
-                    >
-                        <Button
-                            text = "Pokračovať"
-                            buttonType = {ButtonTypes.RIGHT}
-                        />
-                    </NavLink>
+                {
+                        dataFilled 
+                        ?   <NavLink 
+                                to = "/Confimation"
+                            >
+                            <Button
+                                text = "Pokračovať"
+                                buttonType = {ButtonTypes.RIGHTACTIVE}
+                            />
+                            </NavLink>
+                        :   <Button
+                                text = "Pokračovať"
+                                buttonType = {ButtonTypes.RIGHTINACTIVE}
+                            />
+                    }
                 </div>
 
                 <div className={styles.imageContainer}>

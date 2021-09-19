@@ -2,19 +2,22 @@ import React, {useState, useEffect, useRef} from 'react'
 
 import { Data, PersonalInformationData } from '../../Types/types'
 
-import styles from "./InputText.module.scss"
-
 import { useDispatch } from "react-redux"
 import { bindActionCreators } from "redux"
 import { setEmail, setPhoneNumber, setName, setSurname } from "../../state/action-creators/actionCreators"
 import { useSelector } from "react-redux"
 import { RootState } from "../../state/reducers"
 
+import SlovakiaFlag from "../../Assets/SlovakiaFlag.png"
+
+import styles from "./InputText.module.scss"
+
 interface Props  {
     label1 : string,
     label2 : string,
     label3? : string,
-    type : Data
+    type : Data,
+    onDataChange: (value : boolean) => void
 }
 
 const InputText: React.FC<Props> = (props) => {
@@ -29,6 +32,8 @@ const InputText: React.FC<Props> = (props) => {
     const inputRef = useRef<HTMLInputElement>(null)
 
     const [labelsHidden, setLabelsHidden] = useState<boolean>(false)
+
+    const maxLength = props.type === Data.PHONENUMBER ? 13 : 99
 
     useEffect(() => {
         const setText = () => {
@@ -60,7 +65,7 @@ const InputText: React.FC<Props> = (props) => {
         }
 
         setText();
-    },[]);
+    });
 
     const handleChange = () => {
 
@@ -112,7 +117,21 @@ const InputText: React.FC<Props> = (props) => {
                         actionSetPhoneNumber(inputRef.current.value)
                     break;
             }
+
+            if (checkData())
+                props.onDataChange(true)
+            else
+                props.onDataChange(false)
         }
+    }
+
+    const checkData = () => {
+
+        if (personalData.name !== '' && personalData.email !== '' &&
+            personalData.phoneNumber !== '' && personalData.surName !== '')
+            return true;
+
+        return false;
     }
 
     const handleClick = () => {
@@ -144,10 +163,23 @@ const InputText: React.FC<Props> = (props) => {
                     hidden={labelsHidden} 
                     className={styles.typeLabel}
                 >{props.label1}</label>
-                <label 
-                    hidden={labelsHidden} 
-                    className={styles.optionsLabel}
-                >{props.label2}</label>
+                <div className={styles.labelDiv}>
+                    <div className={styles.labelGrid}>
+                    {
+                        props.type === Data.PHONENUMBER &&
+                        <img 
+                            src={SlovakiaFlag} 
+                            hidden={labelsHidden} 
+                            className={styles.imgLabel}
+                            alt="Flag"
+                        />
+                    }
+                    <label
+                        hidden={labelsHidden}
+                        className={styles.optionsLabel}
+                    >{props.label2}</label>
+                    </div>
+                </div>
 
                 <input
                     className={styles.inputStyle}
@@ -155,7 +187,7 @@ const InputText: React.FC<Props> = (props) => {
                     onChange={handleChange}
                     onClick={handleClick}
                     ref={inputRef}
-                    maxLength={13}
+                    maxLength={maxLength}
                 ></input>
             </div>
             

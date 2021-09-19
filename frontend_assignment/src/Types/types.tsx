@@ -1,6 +1,7 @@
 export enum ButtonTypes {
     LEFT,
-    RIGHT
+    RIGHTINACTIVE,
+    RIGHTACTIVE
 }
 
 export enum ParagraphTypes {
