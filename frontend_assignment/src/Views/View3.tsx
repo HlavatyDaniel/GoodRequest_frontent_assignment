@@ -74,6 +74,12 @@ const View3: React.FC = () => {
                     <Links/>
                 </div>  
 
+                <div className={styles.progressContainer}>
+                    <div className={styles.emptyRectangle}></div>
+                    <div className={styles.emptyRectangle}></div>
+                    <div className={styles.filledRectangle}></div>
+                </div>
+
                 <div className={styles.header}>
                     <Header viewName='Skontrolujte si zadané údaje'/>
                 </div>

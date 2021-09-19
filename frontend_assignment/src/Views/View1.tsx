@@ -71,8 +71,15 @@ const View1: React.FC = () => {
         <div>
             <div className={styles.container}>
 
-                <div className={styles.header}>
+                <div className={styles.progressContainer}>
+                    <div className={styles.filledRectangle}></div>
+                    <div className={styles.emptyRectangle}></div>
+                    <div className={styles.emptyRectangle}></div>
+                </div>
+
+                <div className={styles.header}>                    
                     <Header viewName='Vyberte si možnosť, ako chcete pomôcť'/>
+
                 </div>
 
                 <div className={styles.rectangleContainer}>

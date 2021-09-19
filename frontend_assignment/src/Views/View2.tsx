@@ -29,6 +29,12 @@ const View2: React.FC = () => {
                     <Links/>
                 </div>  
 
+                <div className={styles.progressContainer}>
+                        <div className={styles.emptyRectangle}></div>
+                        <div className={styles.filledRectangle}></div>
+                        <div className={styles.emptyRectangle}></div>
+                </div>
+
                 <div className={styles.header}>
                     <Header viewName='Potrebujeme od Vás zopár informácií'/>
                 </div>

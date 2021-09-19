@@ -5,8 +5,7 @@
     display: grid;
 
     grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr;
-    grid-template-rows: 0.5fr 1fr 1.5fr 1fr 1fr 1fr;
-    //1 MiniHeader | 2 Header | 3-5 Paragraphs | 6 Button
+    grid-template-rows: 0.3fr 0.2fr 1fr 1.5fr 1fr 1fr 1fr;
 }
 
 .links {
@@ -16,7 +15,7 @@
 }
 
 .header {
-    grid-row: 2;
+    grid-row: 3;
     grid-column-start: 2;
     grid-column-end: 4;
     max-width: 80%;
@@ -24,25 +23,25 @@
 
 .imageContainer {
     grid-column: 4;
-    grid-row-start: 2;
-    grid-row-end: 6;
+    grid-row-start: 3;
+    grid-row-end: 7;
 }
 
 .paragraphContainer {
     grid-column-start: 2;
     grid-column-end: 4;
-    grid-row-start: 3;
-    grid-row-end: 5;
+    grid-row-start: 4;
+    grid-row-end: 6;
 }
 
 .buttonBack {
     grid-column: 2;
-    grid-row: 6;
+    grid-row: 7;
 }
 
 .buttonNext {
     grid-column: 3;
-    grid-row: 6;
+    grid-row: 7;
 }
 
 .paragraphGrid {
@@ -76,4 +75,29 @@
 
 .checkboxContainer {
     grid-row: 7;
+}
+
+.progressContainer{
+    grid-row: 2;
+    grid-column: 2;
+    height: 6px;
+}
+
+.filledRectangle {
+    width: 43.77px;
+    height: 6px;
+    background: linear-gradient(94.75deg, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0) 100.7%), #CD8B65;
+    border-radius: 10px;
+    float: left;
+    margin-left: 5px;
+}
+
+.emptyRectangle {
+    width: 20.6px;
+    height: 6px;
+    background: #9F9F9F;
+    opacity: 0.36;
+    border-radius: 10px;
+    float: left;
+    margin-left: 5px;
 }
