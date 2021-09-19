@@ -36,7 +36,6 @@ const InputCustomSum: React.FC<Props> = (props) => {
 
         if (inputRef.current)
         {
-
             inputRef.current.value = inputRef.current.value.replace(/\D/g,'');
 
             let inputOption : InputOption = {id : 7, value : 0};

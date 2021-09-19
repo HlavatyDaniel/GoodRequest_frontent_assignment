@@ -32,6 +32,9 @@ const InputText: React.FC<Props> = (props) => {
 
     useEffect(() => {
         const setText = () => {
+
+            console.log("using effect..");
+
             var text : string;
 
             switch(props.type)
@@ -66,15 +69,33 @@ const InputText: React.FC<Props> = (props) => {
 
         setLabelsHidden(true)
         if (inputRef.current?.value === "")
+        {
+            switch (props.type) {
+                case Data.NAME:
+                    actionSetName("")
+                    break;
+                case Data.SURNAME:
+                    actionSetSurname("")
+                    break;
+                case Data.EMAIL:
+                    actionSetEmail("")
+                    break;
+                case Data.PHONENUMBER:
+                    actionSetPhoneNumber("")
+                    break;
+            }
             setLabelsHidden(false)
+        }
 
         if (inputRef.current?.value)
         {
             switch (props.type) {
                 case Data.NAME:
+                    inputRef.current.value = inputRef.current.value.replace(/[&\d+/\\#,+-@()$~%.'":*?<>{}\s]/g, '');
                     actionSetName(inputRef.current.value)
                     break;
                 case Data.SURNAME:
+                    inputRef.current.value = inputRef.current.value.replace(/[&\d+/\\#,+-@()$~%.'":*?<>{}\s]/g, '');
                     actionSetSurname(inputRef.current.value)
                     break;
                 case Data.EMAIL:
