@@ -1,14 +1,14 @@
 import { combineReducers  } from "redux";
 
 import personalInformationReducer from "./personalInformationReducer";
-import utulokReducer from "./utulokReducer";
+import shelterReducer from "./shelterReducer";
 import sumReducer from "./sumReducer";
 import rectangleReducer from "./rectangleReducer";
 import checkboxReducer from "./checkboxReducer";
 
 const reducers = combineReducers({
     personalData : personalInformationReducer,
-    utulokData : utulokReducer,
+    shelterData : shelterReducer,
     sumData : sumReducer,
     rectangleData : rectangleReducer,
     checkBoxData : checkboxReducer

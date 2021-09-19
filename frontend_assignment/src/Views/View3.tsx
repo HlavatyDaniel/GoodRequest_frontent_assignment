@@ -1,6 +1,10 @@
+import { useEffect } from "react"
 import { NavLink } from "react-router-dom"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { RootState } from "../state/reducers"
+import { bindActionCreators } from "redux"
+import { setCheckbox } from "../state/action-creators/actionCreators"
+
 import axios from "axios"
 
 import Header from "../Components/Parts/Header"
@@ -9,7 +13,7 @@ import Button from "../Components/Inputs/Button"
 import Paragraph from "../Components/Parts/Paragraph"
 import Links from "../Components/Parts/Links"
 import CheckBox from "../Components/Inputs/CheckBox"
-import { PostData, ButtonTypes, ParagraphTypes, InputOption, PersonalInformationData, UtulokOption, ViewParagraph, RectangleType} from "../Types/types"
+import { PostData, ButtonTypes, ParagraphTypes, SumOption, PersonalInformationData, ShelterOption, ViewParagraph, RectangleType} from "../Types/types"
 
 import GoodDogoResized from "../Assets/GoodDogoResized.png"
 
@@ -17,8 +21,10 @@ import styles from "./View3.module.scss"
 
 const View3: React.FC = () => {
 
-    const sumData : InputOption = useSelector((state : RootState) => state.sumData)
-    const utulokData : UtulokOption = useSelector((state : RootState) => state.utulokData)
+    const dispatchPick = useDispatch();
+    const actionPickCreator = bindActionCreators(setCheckbox, dispatchPick) 
+    const sumData : SumOption = useSelector((state : RootState) => state.sumData)
+    const utulokData : ShelterOption = useSelector((state : RootState) => state.shelterData)
     const personalData : PersonalInformationData = useSelector((state : RootState) => state.personalData)
     const rectangleData : RectangleType = useSelector((state : RootState) => state.rectangleData)
     const checkBoxData : boolean = useSelector((state : RootState) => state.checkBoxData)
@@ -49,6 +55,16 @@ const View3: React.FC = () => {
         firstParagraphType: ParagraphTypes.LABELFORM, secondText: personalData.phoneNumber,
         secondParagraphType: ParagraphTypes.LABELDATA}
     ]
+
+    useEffect(() => {
+        const unsetCheckbox = () => {
+            actionPickCreator(false)
+        }
+
+        unsetCheckbox()
+        // According to react docs this is fine.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
 
     const handlePost = () => {
         

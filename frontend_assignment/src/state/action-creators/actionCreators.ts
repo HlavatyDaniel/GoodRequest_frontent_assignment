@@ -1,19 +1,19 @@
 import { DataAction} from "../actions"
 
-import { InputOption, UtulokOption, Data, RectangleType } from "../../Types/types"
+import { SumOption, ShelterOption, Data, RectangleType } from "../../Types/types"
 
 import { Dispatch } from "redux"
 
-export const setUtulok = (utulok : UtulokOption) => {
+export const setShelter = (shelter : ShelterOption) => {
     return (dispatch: Dispatch<DataAction>) => {
         dispatch({
-            type: Data.UTULOK,
-            payload : utulok
+            type: Data.SHELTER,
+            payload : shelter
         })
     }
 }
 
-export const setInputValue = (inputValue : InputOption) => {
+export const setInputValue = (inputValue : SumOption) => {
     return (dispatch : Dispatch<DataAction>) => {
         dispatch({
             type: Data.SUM,

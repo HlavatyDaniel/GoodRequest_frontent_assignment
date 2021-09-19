@@ -1,12 +1,12 @@
-import { InputOption, Data, UtulokOption, RectangleType } from "../../Types/types"
+import { SumOption, Data, ShelterOption, RectangleType } from "../../Types/types"
 
 interface Utulok {
-    type: Data.UTULOK
-    payload: UtulokOption
+    type: Data.SHELTER
+    payload: ShelterOption
 }
 interface Suma {
     type: Data.SUM
-    payload: InputOption
+    payload: SumOption
 }
 interface InputName {
     type: Data.NAME

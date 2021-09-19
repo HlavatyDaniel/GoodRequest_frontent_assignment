@@ -6,7 +6,7 @@
     line-height: 21px;
 }
 
-.selectUtulok {
+.selectShelter {
     @extend %mainStyle;
     margin-right: 5em;
     width: 93%;
@@ -17,25 +17,9 @@
     outline: 0;
 }
 
-.selectUtulok:focus{
-    // @extend %mainStyle;
-    // margin-right: 5em;
-    // width: 93%;
-    // height: 74px;
-    // box-sizing: border-box;
-    // border-radius: 8px;
+.selectShelter:focus{
     border: 1px solid #CD8B65;
 }
-
-// .selectUtulok:active{
-//     @extend %mainStyle;
-//     margin-right: 5em;
-//     width: 93%;
-//     height: 74px;
-//     box-sizing: border-box;
-//     border-radius: 8px;
-//     border: 1px solid #CD8B65;
-// }
 
 option {
     @extend %mainStyle;

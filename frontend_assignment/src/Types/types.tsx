@@ -7,7 +7,6 @@ export enum ButtonTypes {
 export enum ParagraphTypes {
     FOOTERNOTE,
     FOOTERTITLE,
-    FOOTERLOGO,
     FOOTERABOUT,
     RECTANGLERIGHTACTIVE,
     RECTANGLERIGHTINACTIVE,
@@ -26,7 +25,7 @@ export enum Data {
     SURNAME,
     EMAIL,
     PHONENUMBER,
-    UTULOK,
+    SHELTER,
     SUM,
     RECTANGLE,
     CHECKBOX
@@ -38,11 +37,11 @@ export enum RectangleType {
     NONE
 }
 
-export interface UtulokOption {
+export interface ShelterOption {
     id: number,
     name : string
 }
-export interface InputOption {
+export interface SumOption {
     id : number,
     value : number
 }
@@ -53,7 +52,6 @@ export interface PersonalInformationData {
     email : string,
     phoneNumber : string
 }
-
 export interface ViewParagraph {
     divClass : string, 
     firstText: string, 
@@ -61,12 +59,6 @@ export interface ViewParagraph {
     secondText: string, 
     secondParagraphType: ParagraphTypes
 }
-export interface PickedData {
-    utulokOption : UtulokOption,
-    inputOption : InputOption,
-    personalInformationData  : PersonalInformationData,
-}
-
 export interface PostData {
     firstName : string,
     lastName : string,

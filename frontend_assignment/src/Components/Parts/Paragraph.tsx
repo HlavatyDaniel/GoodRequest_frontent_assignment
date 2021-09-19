@@ -14,8 +14,6 @@ const Paragraph: React.FC<Props> = (props) => {
 
     if (props.paragraphType === ParagraphTypes.FOOTERABOUT)
         className = styles.footerAbout
-    else if (props.paragraphType === ParagraphTypes.FOOTERLOGO)
-        className = styles.footerLogo
     else if (props.paragraphType === ParagraphTypes.FOOTERNOTE)
         className = styles.footerNote
     else if (props.paragraphType === ParagraphTypes.FOOTERTITLE)

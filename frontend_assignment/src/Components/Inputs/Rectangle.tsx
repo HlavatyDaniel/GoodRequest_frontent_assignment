@@ -25,7 +25,7 @@ const Rectangle: React.FC<Props> = (props) => {
     const dispatchRectangle = useDispatch();
     const actionSetRectangle = bindActionCreators(setRectangle, dispatchRectangle)
 
-    const rectangleType : RectangleType = useSelector((state : RootState) => state.rectangleData)
+    const rectangleData : RectangleType = useSelector((state : RootState) => state.rectangleData)
 
     interface Style {
         divClass : string,
@@ -52,7 +52,7 @@ const Rectangle: React.FC<Props> = (props) => {
         return (<div></div>)
 
     const handleClick = () => {
-        if (rectangleType === props.type)
+        if (rectangleData === props.type)
             actionSetRectangle(RectangleType.NONE)
         else
             actionSetRectangle(props.type)

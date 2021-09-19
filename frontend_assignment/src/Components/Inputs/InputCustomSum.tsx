@@ -4,7 +4,7 @@ import styles from "./InputCustomSum.module.scss"
 import { useDispatch, useSelector} from "react-redux"
 import { bindActionCreators } from "redux"
 import { setInputValue } from "../../state/action-creators/actionCreators"
-import { InputOption } from '../../Types/types'
+import { SumOption } from '../../Types/types'
 import { RootState } from "../../state/reducers"
 
 interface Props {
@@ -17,7 +17,7 @@ const InputCustomSum: React.FC<Props> = (props) => {
     const dispatchPick = useDispatch();
     const actionPickCreator = bindActionCreators(setInputValue, dispatchPick);
 
-    const sumData : InputOption = useSelector((state : RootState) => state.sumData)
+    const sumData : SumOption = useSelector((state : RootState) => state.sumData)
 
     const inputRef  = useRef<HTMLInputElement>(null)
 
@@ -43,22 +43,22 @@ const InputCustomSum: React.FC<Props> = (props) => {
         {
             inputRef.current.value = inputRef.current.value.replace(/\D/g,'');
 
-            let inputOption : InputOption = {id : 7, value : 0};
+            let sumOption : SumOption = {id : 7, value : 0};
             if (inputRef.current.value)
-                inputOption.value = +inputRef.current.value
+            sumOption.value = +inputRef.current.value
 
-            actionPickCreator(inputOption)
+            actionPickCreator(sumOption)
         }
     }
 
     const handleClick = () => {
         if (inputRef.current)
         {               
-            let inputOption : InputOption = {id : 7, value: 0};
+            let sumOption : SumOption = {id : 7, value: 0};
             if (inputRef.current.value)
-                inputOption.value = +inputRef.current.value
+            sumOption.value = +inputRef.current.value
 
-            actionPickCreator(inputOption)
+            actionPickCreator(sumOption)
         }
     }
 

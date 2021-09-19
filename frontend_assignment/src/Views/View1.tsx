@@ -1,5 +1,5 @@
-import {useState, useEffect} from "react"
-import {NavLink} from "react-router-dom"
+import { useState, useEffect } from "react"
+import { NavLink } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { RootState } from "../state/reducers"
 import axios from "axios"
@@ -12,7 +12,7 @@ import Footer from "../Components/Parts/Footer"
 import Input from "../Components/Inputs/Input"
 import InputCustomSum from "../Components/Inputs/InputCustomSum"
 import Paragraph from "../Components/Parts/Paragraph"
-import {ParagraphTypes, ButtonTypes, UtulokOption, InputOption, RectangleType} from "../Types/types"
+import { ParagraphTypes, ButtonTypes, ShelterOption, SumOption, RectangleType } from "../Types/types"
 
 import GoodDogoResized from "../Assets/GoodDogoResized.png"
 
@@ -20,13 +20,13 @@ import styles from "./View1.module.scss"
 
 const View1: React.FC = () => {
 
-    const [utulokOptions, setUtulokOptions] = useState<UtulokOption[]>([])
+    const [shelterOptions, setShelterOptions] = useState<ShelterOption[]>([])
 
-    const pickedInput : InputOption = useSelector((state : RootState) => state.sumData)
-    const pickedRectangle : RectangleType = useSelector((state : RootState) => state.rectangleData)
-    const pickedOption : UtulokOption = useSelector((state : RootState) => state.utulokData)
+    const sumData : SumOption = useSelector((state : RootState) => state.sumData)
+    const rectangleData : RectangleType = useSelector((state : RootState) => state.rectangleData)
+    const shelterData : ShelterOption = useSelector((state : RootState) => state.shelterData)
 
-    const inputOptions : InputOption[] = [
+    const sumOptions : SumOption[] = [
         {id : 1, value: 5}, 
         {id : 2, value: 10},
         {id : 3, value: 20},
@@ -35,33 +35,33 @@ const View1: React.FC = () => {
         {id : 6, value: 100}]
 
     useEffect(() => {
-        const fetchUtulky = () => {
+        const fetchShelters = () => {
             axios.get('https://frontend-assignment-api.goodrequest.com/api/v1/shelters')
                 .then(response => {
-                    let newUtulokOptions : UtulokOption[] = [];
+                    let newShelterOptions : ShelterOption[] = [];
                     Object.keys(response.data.shelters).forEach(function(key) {
-                        const newUtulokOption : UtulokOption = {
+                        const newShelterOption : ShelterOption = {
                             id: response.data.shelters[key].id,
                             name: response.data.shelters[key].name
                         };
-                        newUtulokOptions.push(newUtulokOption);
+                        newShelterOptions.push(newShelterOption);
                     })
 
-                    setUtulokOptions(newUtulokOptions)
+                    setShelterOptions(newShelterOptions)
                 }).catch(ignore => {
                     console.log("not sure what should i do here, what is standard behavior")
                 })
         };
 
-        fetchUtulky()
+        fetchShelters()
     },[]);
 
     const checkData = () => {
-        if (pickedInput.value !== 0)
+        if (sumData.value !== 0)
         {
-            if (pickedRectangle === RectangleType.CONRETE && pickedOption.id !== 0)
+            if (rectangleData === RectangleType.CONRETE && shelterData.id !== 0)
                 return true;
-            else if (pickedRectangle === RectangleType.GENERAL)
+            else if (rectangleData === RectangleType.GENERAL)
                 return true;
         }
         return false;
@@ -85,19 +85,19 @@ const View1: React.FC = () => {
                 <div className={styles.rectangleContainer}>
                     <Rectangle
                         type={RectangleType.CONRETE}
-                        active={pickedRectangle === RectangleType.CONRETE ? true : false}
+                        active={rectangleData === RectangleType.CONRETE ? true : false}
                     ></Rectangle>
 
                     <Rectangle
                         type={RectangleType.GENERAL}
-                        active={pickedRectangle === RectangleType.GENERAL ? true : false}
+                        active={rectangleData === RectangleType.GENERAL ? true : false}
                     ></Rectangle>
 
                 </div>
 
-                <div className={styles.inputUtulok}>
+                <div className={styles.inputShelter}>
                     <Select
-                        utulokOptions = {utulokOptions}
+                        shelterOptions = {shelterOptions}
                     />
                 </div>
 
@@ -110,20 +110,20 @@ const View1: React.FC = () => {
 
                     <div>
                         {
-                        inputOptions.map(inputOption => (
-                            pickedInput.value === inputOption.value 
+                        sumOptions.map(sumOption => (
+                            sumData.value === sumOption.value 
                             ?   <Input 
-                                    inputOption={inputOption}
+                                    sumOption={sumOption}
                                     active={true}
                                 />
                             :   <Input
-                                    inputOption={inputOption}
+                                    sumOption={sumOption}
                                     active={false}
                                 />
                             ))
                         }
                         {
-                        pickedInput.id === 7 
+                        sumData.id === 7 
                         ?   <InputCustomSum
                                 id = {7}
                                 active={true}

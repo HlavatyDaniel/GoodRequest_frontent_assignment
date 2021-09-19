@@ -1,9 +1,9 @@
 import { DataAction } from "../actions"
-import { Data, InputOption } from "../../Types/types"
+import { Data, SumOption } from "../../Types/types"
  
-const initialState : InputOption = {id : 0, value : 0}
+const initialState : SumOption = {id : 0, value : 0}
 
-const sumReducer = (state : InputOption = initialState, action : DataAction) => {
+const sumReducer = (state : SumOption = initialState, action : DataAction) => {
     switch (action.type) {
         case Data.SUM:
             state = action.payload;

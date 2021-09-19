@@ -2,7 +2,7 @@ import React from 'react'
 
 import Paragraph  from './Paragraph'
 
-import GoodBoy from "../../Assets/GoodBoyLogo.png"
+import GoodBoyLogo from "../../Assets/GoodBoyLogo.png"
 
 import styles from "./Footer.module.scss"
 import { ParagraphTypes } from "../../Types/types"
@@ -15,11 +15,7 @@ const Footer: React.FC = () => {
             <hr className={styles.line}/> 
             <footer className={styles.container}> 
                 <div className={styles.logo}>
-                    <img src={GoodBoy} alt="Good Boy" className={styles.goodBoy}/>
-                    <Paragraph
-                        text="Good boy"
-                        paragraphType= {ParagraphTypes.FOOTERLOGO}
-                    ></Paragraph>
+                    <img src={GoodBoyLogo} alt="Good Boy" className={styles.goodBoy}/>
                 </div>
 
                 <div className={styles.infoContainer}>

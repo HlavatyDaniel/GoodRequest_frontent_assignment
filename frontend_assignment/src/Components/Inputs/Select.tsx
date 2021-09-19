@@ -1,46 +1,46 @@
 import React, {useState, useRef, useEffect} from 'react'
 
 import Paragraph from '../Parts/Paragraph'
-import { ParagraphTypes, RectangleType, UtulokOption } from '../../Types/types'
+import { ParagraphTypes, RectangleType, ShelterOption } from '../../Types/types'
 
 import styles from "./Select.module.scss"
 
 import { useDispatch} from "react-redux"
 import { bindActionCreators } from "redux"
-import { setUtulok } from "../../state/action-creators/actionCreators"
+import { setShelter } from "../../state/action-creators/actionCreators"
 
 import { useSelector } from "react-redux"
 import { RootState } from "../../state/reducers"
 
 interface Props {
-    utulokOptions: UtulokOption[] 
+    shelterOptions: ShelterOption[] 
 }
 
 const Select: React.FC<Props> = (props) => {
 
-    const {utulokOptions} = props
+    const {shelterOptions} = props
 
     const [labelsHidden, setLabelsHidden] = useState<boolean>(false)
 
-    const selectUtulokRef = useRef<HTMLSelectElement>(null)
+    const selectShelterRef = useRef<HTMLSelectElement>(null)
 
     const dispatchPick = useDispatch();
-    const actionPickCreator = bindActionCreators(setUtulok, dispatchPick)
-    const pickedUtulok : UtulokOption = useSelector((state : RootState) => state.utulokData)
-    const pickedRectangle : RectangleType = useSelector((state : RootState) => state.rectangleData)
+    const actionPickCreator = bindActionCreators(setShelter, dispatchPick)
+    const shelterData : ShelterOption = useSelector((state : RootState) => state.shelterData)
+    const rectangleData : RectangleType = useSelector((state : RootState) => state.rectangleData)
 
     useEffect(() => {
         const setOption = () => {
-            if (pickedUtulok.id !== 0 && pickedUtulok.name !== "")
+            if (shelterData.id !== 0 && shelterData.name !== "")
             {
-                if (selectUtulokRef.current)
+                if (selectShelterRef.current)
                 {
-                    var children = selectUtulokRef.current.children;
+                    var children = selectShelterRef.current.children;
                     for (var i = 0; i < children.length; i++)
                     {
-                        if (children[i].innerHTML.toString() === pickedUtulok.name)
+                        if (children[i].innerHTML.toString() === shelterData.name)
                         {
-                            selectUtulokRef.current.value = pickedUtulok.id + "|" + pickedUtulok.name
+                            selectShelterRef.current.value = shelterData.id + "|" + shelterData.name
                             setLabelsHidden(true)
                             break;
                         }
@@ -55,9 +55,9 @@ const Select: React.FC<Props> = (props) => {
     const handleChange = () => {
         setLabelsHidden(true)
 
-        if (selectUtulokRef.current?.value)
+        if (selectShelterRef.current?.value)
         {
-            var splits = selectUtulokRef.current.value.split("|")
+            var splits = selectShelterRef.current.value.split("|")
             var id : number
             var name : string
 
@@ -69,12 +69,12 @@ const Select: React.FC<Props> = (props) => {
                 name = splits[1];
             else return;
 
-            var utulok : UtulokOption = {
+            var shelter : ShelterOption = {
                 id : id,
                 name :  name
             }
 
-            actionPickCreator(utulok);
+            actionPickCreator(shelter);
         }
     }
 
@@ -88,7 +88,7 @@ const Select: React.FC<Props> = (props) => {
                     paragraphType= {ParagraphTypes.LABELLEFT}
                 ></Paragraph>
                 {
-                    pickedRectangle !== RectangleType.CONRETE &&
+                    rectangleData !== RectangleType.CONRETE &&
                     <Paragraph
                         text="Nepovinné"
                         paragraphType= {ParagraphTypes.LABELRIGHT}
@@ -110,16 +110,16 @@ const Select: React.FC<Props> = (props) => {
                 >Vyberte útulok zo zoznamu</label>
 
                 <select
-                    className={styles.selectUtulok}
+                    className={styles.selectShelter}
                     onChange={handleChange}
-                    ref={selectUtulokRef}
+                    ref={selectShelterRef}
                 >
                     <option disabled selected value="">
                     </option>
                     {
-                    utulokOptions.map(utulok => (
-                        <option value={utulok.id + "|" + utulok.name}>
-                            {utulok.name} 
+                    shelterOptions.map(shelter => (
+                        <option value={shelter.id + "|" + shelter.name}>
+                            {shelter.name} 
                         </option>
                     ))
                     }
