@@ -8,9 +8,11 @@ import { setInputValue } from "../../state/action-creators/actionCreators"
 import { InputOption } from '../../Types/types'
 import { RootState } from "../../state/reducers"
 
+import styles from "./Input.module.scss"
+
 interface Props {
     inputOption : InputOption,
-    className : string,
+    active : boolean
 }
 
 const Input: React.FC<Props> = (props) => {
@@ -19,6 +21,8 @@ const Input: React.FC<Props> = (props) => {
     const actionPickCreator = bindActionCreators(setInputValue, dispatchPick);
 
     const sumData : InputOption = useSelector((state : RootState) => state.sumData)
+
+    const className = props.active ? styles.inputAmountActive : styles.inputAmountInactive
 
     const description : string = props.inputOption.value.toString() + "€";
     const inputSizeStyle: CSS.Properties = {
@@ -41,7 +45,7 @@ const Input: React.FC<Props> = (props) => {
                 style={inputSizeStyle}
                 type="submit" 
                 value={description} 
-                className = {props.className}
+                className = {className}
                 onClick={handleClick}
             ></input>
     )

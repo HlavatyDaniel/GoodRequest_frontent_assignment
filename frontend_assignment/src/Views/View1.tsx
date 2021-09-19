@@ -114,11 +114,11 @@ const View1: React.FC = () => {
                             pickedInput.value === inputOption.value 
                             ?   <Input 
                                     inputOption={inputOption}
-                                    className={styles.inputAmountActive}
+                                    active={true}
                                 />
                             :   <Input
                                     inputOption={inputOption}
-                                    className={styles.inputAmountInactive}
+                                    active={false}
                                 />
                             ))
                         }
@@ -126,16 +126,11 @@ const View1: React.FC = () => {
                         pickedInput.id === 7 
                         ?   <InputCustomSum
                                 id = {7}
-                                classNameDiv={styles.inputCustomSumDivActive}
-                                classNameInput={styles.inputCustomSumActive}
-                                classNameEuroSign={styles.inputEuroSignActive}
+                                active={true}
                             />
                         :   <InputCustomSum
                                 id = {7}
-                                classNameDiv={styles.inputCustomDivInactive}
-                                classNameInput={styles.inputCustomSumInactive}
-                                classNameEuroSign={styles.inputEuroSignInactive}
-
+                                active={false}
                             />
                         }
                     </div>

@@ -1,6 +1,6 @@
 import React, {useRef, useEffect} from 'react'
 
-// import styles from "./InputCustomSum.module.scss"
+import styles from "./InputCustomSum.module.scss"
 import { useDispatch, useSelector} from "react-redux"
 import { bindActionCreators } from "redux"
 import { setInputValue } from "../../state/action-creators/actionCreators"
@@ -9,9 +9,7 @@ import { RootState } from "../../state/reducers"
 
 interface Props {
     id : number
-    classNameInput : string
-    classNameEuroSign : string
-    classNameDiv : string
+    active : boolean
 }
 
 const InputCustomSum: React.FC<Props> = (props) => {
@@ -22,6 +20,13 @@ const InputCustomSum: React.FC<Props> = (props) => {
     const sumData : InputOption = useSelector((state : RootState) => state.sumData)
 
     const inputRef  = useRef<HTMLInputElement>(null)
+
+    const classNameInput = props.active ? styles.inputCustomSumActive 
+                                        : styles.inputCustomSumInactive
+    const classNameEuroSign = props.active  ? styles.inputEuroSignActive
+                                            : styles.inputEuroSignInactive
+    const classNameDiv = props.active   ? styles.inputCustomSumDivActive
+                                        : styles.inputCustomDivInactive
 
     useEffect(() => {
         const setValue = () => {
@@ -58,16 +63,16 @@ const InputCustomSum: React.FC<Props> = (props) => {
     }
 
     return (
-        <div className={props.classNameDiv}>
+        <div className={classNameDiv}>
             <input
                 type="text"
-                className={props.classNameInput}
+                className={classNameInput}
                 onChange={handleChange}
                 onClick={handleClick}
                 ref={inputRef}
             >
             </input>
-            <p className={props.classNameEuroSign}>
+            <p className={classNameEuroSign}>
             €
             </p>
         </div>  

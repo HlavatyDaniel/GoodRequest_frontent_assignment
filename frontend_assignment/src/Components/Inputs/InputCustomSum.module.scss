@@ -11,3 +11,73 @@
     margin-left: 0.2em;
     margin-right: 0.5em;
 }
+
+%inputCustomSum {
+    display: inline-block;
+
+    width: 53px;
+    height: 33px;
+
+    border: 0;
+    outline: 0;
+    margin-top: 8px;
+    margin-left: 10px;
+
+    font-family: 'Public Sans', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.inputCustomSumActive {
+    @extend %inputCustomSum;
+    border-bottom: 1px solid #FFFFFF;
+    background: linear-gradient(115.41deg, #CD8A64 -1.77%, #C4794F 73.03%); 
+    color: #FFFFFF;
+}
+
+.inputCustomSumInactive {
+    @extend %inputCustomSum;
+    border-bottom: 1px solid #C9C9C9;
+}
+
+%inputEuroSign {
+    font-family: 'Public Sans', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    display: inline-block;
+    margin-top : 8px;
+}
+
+.inputEuroSignActive {
+    @extend %inputEuroSign;
+    color : #FFFFFF;
+}
+
+.inputEuroSignInactive {
+    @extend %inputEuroSign;
+    color : solid black
+}
+
+%inputCustomSumDiv {
+    display: inline-block;
+
+    width: 86px;
+    height: 53px;
+    
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-left: 0.2em;
+    margin-right: 0.5em;
+}
+
+.inputCustomSumDivActive {
+    @extend %inputCustomSumDiv;
+    background: linear-gradient(115.41deg, #CD8A64 -1.77%, #C4794F 73.03%); 
+}
+
+.inputCustomDivInactive {
+    @extend %inputCustomSumDiv;
+    background: #FFFFFF;
+    border: 1px solid #DFDFDF;
+}
