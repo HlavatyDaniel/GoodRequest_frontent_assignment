@@ -33,8 +33,6 @@ const View1: React.FC = () => {
         {id : 5, value: 50},
         {id : 6, value: 100}]
 
-    const todoOption : InputOption = {id:  7, value: 0}
-
     useEffect(() => {
         const fetchUtulky = () => {
             axios.get('https://frontend-assignment-api.goodrequest.com/api/v1/shelters')

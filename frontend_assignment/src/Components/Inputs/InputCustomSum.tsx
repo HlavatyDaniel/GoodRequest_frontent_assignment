@@ -1,6 +1,6 @@
 import React, {useRef, useEffect} from 'react'
 
-import styles from "./InputCustomSum.module.scss"
+// import styles from "./InputCustomSum.module.scss"
 import { useDispatch, useSelector} from "react-redux"
 import { bindActionCreators } from "redux"
 import { setInputValue } from "../../state/action-creators/actionCreators"

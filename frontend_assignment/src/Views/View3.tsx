@@ -20,7 +20,7 @@ const View3: React.FC = () => {
     const utulokData : UtulokOption = useSelector((state : RootState) => state.utulokData)
     const personalData : PersonalInformationData = useSelector((state : RootState) => state.personalData)
     const rectangleData : RectangleType = useSelector((state : RootState) => state.rectangleData)
-    const checkBoxData : boolean = useSelector((state : RootState) => state.checkBoxData)
+    // const checkBoxData : boolean = useSelector((state : RootState) => state.checkBoxData)
 
     let nadaciaText : string = ""
     if (rectangleData === RectangleType.CONRETE)

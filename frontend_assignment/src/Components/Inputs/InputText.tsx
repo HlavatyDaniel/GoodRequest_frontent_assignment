@@ -32,9 +32,6 @@ const InputText: React.FC<Props> = (props) => {
 
     useEffect(() => {
         const setText = () => {
-
-            console.log("using effect..");
-
             var text : string;
 
             switch(props.type)
@@ -63,7 +60,7 @@ const InputText: React.FC<Props> = (props) => {
         }
 
         setText();
-    });
+    },[]);
 
     const handleChange = () => {
 
@@ -99,11 +96,35 @@ const InputText: React.FC<Props> = (props) => {
                     actionSetSurname(inputRef.current.value)
                     break;
                 case Data.EMAIL:
-                    actionSetEmail(inputRef.current.value)
+                    if (/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(inputRef.current.value))
+                        actionSetEmail(inputRef.current.value)
+                    else
+                        actionSetEmail("");
                     break;
                 case Data.PHONENUMBER:
-                    actionSetPhoneNumber(inputRef.current.value)
+                    inputRef.current.value = inputRef.current.value.replace(/\D/g,'');
+
+                    const preset = "+421"
+                    if (!inputRef.current.value.startsWith(preset))
+                        inputRef.current.value = preset + inputRef.current.value.substr(3);
+                    
+                    if (inputRef.current.value.length === 13)
+                        actionSetPhoneNumber(inputRef.current.value)
                     break;
+            }
+        }
+    }
+
+    const handleClick = () => {
+        if (props.type === Data.PHONENUMBER)
+        {
+            if (inputRef.current)
+            {
+                if (inputRef.current.value === "")
+                {
+                    inputRef.current.value = "+421"
+                    setLabelsHidden(true);
+                }
             }
         }
     }
@@ -132,10 +153,10 @@ const InputText: React.FC<Props> = (props) => {
                     className={styles.inputStyle}
                     type="text"
                     onChange={handleChange}
+                    onClick={handleClick}
                     ref={inputRef}
-                >
-                </input>
-
+                    maxLength={13}
+                ></input>
             </div>
             
         </div>
