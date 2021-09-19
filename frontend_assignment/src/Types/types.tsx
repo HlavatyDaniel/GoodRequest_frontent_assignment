@@ -66,3 +66,12 @@ export interface PickedData {
     inputOption : InputOption,
     personalInformationData  : PersonalInformationData,
 }
+
+export interface PostData {
+    firstName : string,
+    lastName : string,
+    email : string,
+    value : string,
+    phone? : string,
+    shelterId? : number
+}

@@ -65,6 +65,11 @@ const InputText: React.FC<Props> = (props) => {
         }
 
         setText();
+
+        if (checkData())
+            props.onDataChange(true)
+        else
+            props.onDataChange(false)
     });
 
     const handleChange = () => {
@@ -131,7 +136,7 @@ const InputText: React.FC<Props> = (props) => {
             personalData.phoneNumber !== '' && personalData.surName !== '')
             return true;
 
-        return false;
+        return false
     }
 
     const handleClick = () => {

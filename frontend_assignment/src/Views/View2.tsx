@@ -1,23 +1,18 @@
 import React, {useState} from 'react'
-
 import {NavLink} from "react-router-dom"
-import { useSelector } from "react-redux"
-import { RootState } from "../state/reducers"
 
 import Header from "../Components/Parts/Header"
 import Footer from "../Components/Parts/Footer"
 import InputText from "../Components/Inputs/InputText"
 import Button from "../Components/Inputs/Button"
 import Links from "../Components/Parts/Links"
-import { ButtonTypes, Data, PersonalInformationData } from "../Types/types"
+import { ButtonTypes, Data } from "../Types/types"
 
 import GoodDogoResized from "../Assets/GoodDogoResized.png"
 
 import styles from "./View2.module.scss"
 
 const View2: React.FC = () => {
-
-    //const personalData : PersonalInformationData = useSelector((state : RootState) => state.personalData)
 
     const [dataFilled, setDataFilled] = useState<boolean>(false)
 

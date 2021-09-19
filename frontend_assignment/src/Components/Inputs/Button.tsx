@@ -8,6 +8,7 @@ import CSS from 'csstype'
 interface Props {
     text : string
     buttonType : ButtonTypes
+    onClick?: () => void
 }
 
 const Button: React.FC<Props> = (props) => {
@@ -25,10 +26,16 @@ const Button: React.FC<Props> = (props) => {
         width: (props.text.length*7 + 60).toString() + "px"
     }
 
+    const handleOnClick = () => {
+        if (props.onClick)
+            props.onClick()
+    }
+
     return (
         <button
             className={className} 
             style={buttonSizeStyle}
+            onClick={handleOnClick}
         >
         {props.text}
         </button>

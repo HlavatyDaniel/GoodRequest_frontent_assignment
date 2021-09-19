@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { RootState } from "../state/reducers"
+import axios from "axios"
 
 import Header from "../Components/Parts/Header"
 import Footer from "../Components/Parts/Footer"
@@ -8,7 +9,7 @@ import Button from "../Components/Inputs/Button"
 import Paragraph from "../Components/Parts/Paragraph"
 import Links from "../Components/Parts/Links"
 import CheckBox from "../Components/Inputs/CheckBox"
-import { ButtonTypes, ParagraphTypes, InputOption, PersonalInformationData, UtulokOption, ViewParagraph, RectangleType} from "../Types/types"
+import { PostData, ButtonTypes, ParagraphTypes, InputOption, PersonalInformationData, UtulokOption, ViewParagraph, RectangleType} from "../Types/types"
 
 import GoodDogoResized from "../Assets/GoodDogoResized.png"
 
@@ -48,6 +49,22 @@ const View3: React.FC = () => {
         firstParagraphType: ParagraphTypes.LABELFORM, secondText: personalData.phoneNumber,
         secondParagraphType: ParagraphTypes.LABELDATA}
     ]
+
+    const handlePost = () => {
+        
+        let postData : PostData = {firstName: "", lastName: "", email: "", value: ""}
+        postData.firstName = personalData.name
+        postData.lastName = personalData.surName
+        postData.email = personalData.email
+        postData.value = sumData.value.toString()
+        let phoneNumber : string = "0" + personalData.phoneNumber.substr(4)
+        postData.phone = phoneNumber
+        if (utulokData.id !== 0)
+            postData.shelterId = utulokData.id
+
+        axios.post('https://frontend-assignment-api.goodrequest.com/api/v1/shelters/contribute', postData)
+            .then(response => console.log(response))
+    }
 
     return (
         <div>
@@ -104,16 +121,13 @@ const View3: React.FC = () => {
                 <div className={styles.buttonNext}>
                 {
                     checkBoxData
-                    ?   <NavLink 
-                            to = "/PersonalInfo"
-                        >
-                        <Button
-                            text = "Pokračovať"
+                    ?   <Button
+                            text = "Odoslať formulár"
                             buttonType = {ButtonTypes.RIGHTACTIVE}
+                            onClick = {handlePost}
                         />
-                        </NavLink>
                     :   <Button
-                            text = "Pokračovať"
+                            text = "Odoslať formulár"
                             buttonType = {ButtonTypes.RIGHTINACTIVE}
                         />
                 }
