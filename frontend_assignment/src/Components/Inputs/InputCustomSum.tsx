@@ -26,28 +26,30 @@ const InputCustomSum: React.FC<Props> = (props) => {
     useEffect(() => {
         const setValue = () => {
             if (props.id === sumData.id && sumData.value !== 0 && inputRef.current)
-            {
                 inputRef.current.value = sumData.value.toString();
-            }
         }
 
         setValue();
     });
 
     const handleChange = () => {
+
         if (inputRef.current)
         {
+
+            inputRef.current.value = inputRef.current.value.replace(/\D/g,'');
+
             let inputOption : InputOption = {id : 7, value : 0};
             if (inputRef.current.value)
                 inputOption.value = +inputRef.current.value
 
-                actionPickCreator(inputOption)
+            actionPickCreator(inputOption)
         }
     }
 
     const handleClick = () => {
         if (inputRef.current)
-        {
+        {               
             let inputOption : InputOption = {id : 7, value: 0};
             if (inputRef.current.value)
                 inputOption.value = +inputRef.current.value
