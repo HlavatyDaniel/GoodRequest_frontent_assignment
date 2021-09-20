@@ -11,6 +11,7 @@ import { RootState } from "../../state/reducers"
 import SlovakiaFlag from "../../Assets/SlovakiaFlag.png"
 
 import styles from "./InputText.module.scss"
+import { kMaxLength } from 'buffer'
 
 interface Props  {
     label1 : string,
@@ -33,7 +34,24 @@ const InputText: React.FC<Props> = (props) => {
 
     const [labelsHidden, setLabelsHidden] = useState<boolean>(false)
 
-    const maxLength = props.type === Data.PHONENUMBER ? 13 : 99
+    let maxLength;
+    switch(props.type)
+    {
+        case Data.NAME:
+            maxLength = 30
+            break;
+        case Data.SURNAME:
+            maxLength = 30
+            break;
+        case Data.EMAIL:
+            maxLength = 99
+            break;
+        case Data.PHONENUMBER:
+            maxLength = 13
+            break;
+        default:
+            maxLength = 99
+    }
 
     useEffect(() => {
         const setText = () => {
@@ -99,11 +117,13 @@ const InputText: React.FC<Props> = (props) => {
             switch (props.type) {
                 case Data.NAME:
                     inputRef.current.value = inputRef.current.value.replace(/[&\d+/\\#,+-@()$~%.'":*?<>{}\s]/g, '');
-                    actionSetName(inputRef.current.value)
+                    if (inputRef.current.value.length >= 2)
+                        actionSetName(inputRef.current.value)
                     break;
                 case Data.SURNAME:
                     inputRef.current.value = inputRef.current.value.replace(/[&\d+/\\#,+-@()$~%.'":*?<>{}\s]/g, '');
-                    actionSetSurname(inputRef.current.value)
+                    if (inputRef.current.value.length >= 2)
+                        actionSetSurname(inputRef.current.value)
                     break;
                 case Data.EMAIL:
                     if (/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(inputRef.current.value))
