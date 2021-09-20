@@ -13,4 +13,6 @@ Nie som si isty kam sa mam posunut po uspesnom/neuspesnom submite. Hadam staci h
 
 Momentalne fungovanie validacie inputov funguje tak ze farba buttonu next je sediva a funkctionalita je vypnuta, mozno niekde patri hlaska ze co je zle vyplnene, ale nechcel som moc pretvarat vyzor toho zadania, tak som to nechal takto.
 
+Nestihol som / nevedel som kde pridat vyber cz/sk predvolby pri telefonnej volbe, ale rad to dorobim.
+
 A to je asi +- vsetko :)
